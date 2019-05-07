@@ -177,11 +177,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h1><p>ConvertScale<br>使用线性变换转换数组<br>void cvConvertScale( const CvArr<em> src, CvArr</em> dst, double scale=1, double shift=0 );<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> cvCvtScale cvConvertScale</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> cvScale cvConvertScale</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> cvConvert( src, dst ) cvConvertScale( (src), (dst), 1, 0 )</span></span><br></pre></td></tr></table></figure></p>
-<p>src 输入数组，dst 输出数组，scale 比例因子，shift 该加数被加到输入数组元素按比例缩放后得到的元素上。函数 cvConvertScale 有多个不同的目的因此就有多个同义函数（如上面的#define所示）。该函数首先对输入数组的元素进行比例缩放，然后将shift加到比例缩放后得到的各元素上，即： dst(I)=src(I)*scale + (shift,shift,…)，最后可选的类型转换将结果拷贝到输出数组。多通道的数组对各个通道是独立处理的。类型转换主要用舍入和溢出截断来完成。也就是如果缩放+转换后的结果值不能用输出数组元素类型值精确表达，就设置成在输出数组数据轴上最接近该数的值。如果，scale=1,shift=0 就不会进行比例缩放. 这是一个特殊的优化，相当于该函数的同义函数名：cvConvert 。如果原来数组和输出数组的类型相同，这是另一种特殊情形，可以被用于比例缩放和平移矩阵或图像，此时相当于该函数的同义函数名：cvScale。 使用不当，可能会出现下面的错误。<br><img src="/2019/05/07/cvConvertScale用法/error.jpg"><br>请你思考一下几个问题： </p>
-<p>1.check这两个图或者矩阵是不是初始化了<br><br>2.如果初始化了，初始化的大小是不是一样，即两者有没有相同的长宽<br><br>3.两者的depth深度是不是一样，即是不是一个是三通道的，一个是单通道的。<br>或者一个是单通道32位浮点类型，一个是单通道8位整形类型</p>
-<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><p>opencv 8位图像转32位图像 cvConvertScale<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IplImage *im8 = cvLoadImage(argv[<span class="number">1</span>]);</span><br><span class="line">IplImage *im32 = cvCreateImage(cvSize(im8-&gt;width, im8-&gt;height), <span class="number">32</span>, <span class="number">3</span>);</span><br><span class="line">cvConvertScale(im8, im32, <span class="number">1</span>/<span class="number">255.</span>);</span><br></pre></td></tr></table></figure></p>
-<h1 id="问题问答"><a href="#问题问答" class="headerlink" title="问题问答"></a>问题问答</h1><p><strong>问</strong>：《学习OpenCV》这本书，里面讲到 ”如果我们有一个 8 位的 RGB 灰度图像并想把它变为 16 位有符号的图像，就可以调用函数 cvConvertScale() 来做这个工作。“<br>我有连个问题，一个是：既然是RGB图像，为何又是灰度图像？灰度图像不是单通道的吗？但是我把网上的程序应用到RGB彩色图像上，发现也可以操作。<br>第二个问题是：网上用这个的时候，都将 scale 项设为了 1/255.0 ，我明白这里的意思是将转换后的图像像素值限定在 0 到 255 之间，可是为什么这种转换会导致最后的像素值大于 255 呢？<br><br><strong>答</strong>：这个函数本质处理只是 矩阵操作，所以用在彩色图片也没问题吧，只要类型设置对了。<br>scale 项设为了 1/255.0，是想把像素 规约到【0,1】的区间<br>不是0到255</p>
-
+<p>src 输入数组，dst 输出数组，scale 比例因子，shift 该加数被加到输入数组元素按比例缩放后得到的元素上。函数 cvConvertScale 有多个不同的目的因此就有多个同义函数（如上面的#define所示）。该函数首先对输入数组的元素进行比例缩放，然后将shift加到比例缩放后得到的各元素上，即： dst(I)=src(I)*scale + (shift,shift,…)，最后可选的类型转换将结果拷贝到输出数组。多通道的数组对各个通道是独立处理的。类型转换主要用舍入和溢出截断来完成。也就是如果缩放+转换后的结果值不能用输出数组元素类型值精确表达，就设置成在输出数组数据轴上最接近该数的值。如果，scale=1,shift=0 就不会进行比例缩放. 这是一个特殊的优化，相当于该函数的同义函数名：cvConvert 。如果原来数组和输出数组的类型相同，这是另一种特殊情形，可以被用于比例缩放和平移矩阵或图像，此时相当于该函数的同义函数名：cvScale。 使用不当，可能会出现下面的错误。<br><img src="/2019/05/07/cvConvertScale用法/error.jpg"><br></p>
+        
       
 
       
@@ -263,64 +260,8 @@
 <p>由于做项目的要求，我们需要将opencv移植到arm体系的开发板上，经过我的测试，在开发板：cortex-a8等都可以运行正常的。</p>
 </blockquote>
 <p>#使用文件清单#<br><img src="/2019/05/07/opencv2-0-交叉编译/List.jpg"></p>
-<p>#编译依赖库#<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我相信，你在编译库的时候可能会遇到很多问题，我下面提供的编译方法可能在你的机器上会报上一些错误，这很正常，把你的库错误信息交给百度，bing，google去解决！我这里说的是主体思路。另外关于这些库的用处，应该在两处起到作用：一，ubuntu编译交叉编译opencv2.0的时候用到；二，这些库要在移植的时候移植到开发板的/lib文件夹（/lib 这是开发板的默认库搜索路径，就是说你把库丢在这个目录就好了，不用设置什么搜索路径了，省事），具体哪些移入，我待会说。最后，arm-linux-gcc这个交叉编译器要预先装好，百度有很多教程。</p>
-<p>1.libz</p>
-<pre><code>./configure –prefix=$OPENCV_DEPEND –shared 
-修改 Makefile 
-CC=arm-linux-gcc 
-AR=arm-linux-ar 
-RANLIB=arm-linux-ranlib 
-LDSHARED=arm-linux-gcc -shared-Wl,-soname,libz.so.1,–version-script,zlib.map 
-make 
-make install
-</code></pre><p>2.libjpeg</p>
-<pre><code>./configure–host=arm-linux –prefix=$OPENCV_DEPEND –enable-shared –enable-static 
-make 
-makeinstall
-</code></pre><p>3.libpng</p>
-<pre><code>./configure –host=arm-linux–prefix=   $OPENCV_DEPEND –enable-shared –enable-static 
-make 
-make install
-</code></pre><p>4.yasm </p>
-<pre><code>CC=arm-linux-gcc ./configure–enable-shared –host=arm-linux –disable-asm –prefix=$OPENCV_DEPEND
-make
-    make install
-</code></pre><p>5.libx264</p>
-<pre><code>CC=arm-linux-gcc ./configure–enable-shared –host=arm-linux –disable-asm –prefix=$OPENCV_DEPEND 
-make 
-make install
-</code></pre><p>6.libxvid</p>
-<pre><code>cd build/generic 
-./configure –prefix=$OPENCV_DEPEND –host=arm-linux –disable-assembly 
-make 
-make install
-</code></pre><p>7.ffmpeg</p>
-<pre><code>./configure –prefix=OPENCVDEPEND–enable−shared–disable−static–enable−gpl–enable−cross−compile–arch=arm–disable−stripping–target−os=linux–enable−libx264–enable−libxvid–cc=arm−linux−gcc–enable−swscale–extra−ldflags=−LOPENCVDEPEND–enable−shared–disable−static–enable−gpl–enable−cross−compile–arch=arm–disable−stripping–target−os=linux–enable−libx264–enable−libxvid–cc=arm−linux−gcc–enable−swscale–extra−ldflags=−LOPENCV_DEPEND/lib --extra-cflags=-I$OPENCV_DEPEND/include 
-make 
-make install 
-</code></pre><p>8.opencv2.0 交叉编译  </p>
-<p>进入opencv2.0.0目录：首先，修改configure文件:<br>gedit configure <br><br>然后，搜索-lavcodec,定位到大概18182行的位置，在“FFMPEGLIBS=”-lavcodec -lavformat” 后添加 “-lswscale”， 修改之后变为：“FFMPEGLIBS=”-lavcodec -lavformat -lswscale $FFMPEG_SWSCALE_LIBS””，然后保存退出。<br>在终端中输入： </p>
-<pre><code>./configure –host=arm-none-linux-gnueabi –without-gtk –without-carbon –without-quicktime –without-1394libs –with-ffmpeg –without-python –without-swig –enable-static –enable-shared –disable-apps CXX=arm-linux-g++ CPPFLAGS=-I/usr/local/arm/4.3.2/arm-none-linux-gnueabi/include/ LDFLAGS=-L/ usr/local /arm/4.3.2/arm-none-linux-gnueabi/lib –with-v4l –prefix=/usr/local/arm/4.3.2/arm-none-linux-gnueabi CXXFLAGS=-O2
-make 
-make install
-</code></pre><blockquote>
-<p>opencv-2.0.0移植算是成功了。接下来，需要把所有的库烧写到arm板子上去，如果烧写到根目录的lib目录下，那么不用指定LD-LIBRARY-PATH，反之亦然。</p>
-</blockquote>
-<p>这个有个问题，你要移植的库除了第八步之后产生lib文件下的库文件(<font color="blue">以.a结尾的，.la结尾的通通不要移动，这不是动态库！移动的是后缀中有so这个字眼的，记住</font>)，还要移动的是之前第1~7步骤中的某些库，为什么说某些库，你需要啥就用啥呗！比如，你要用cvloadimage这个函数加载png 和 jpeg的图片，那个你就把png还有jpeg相应的库也给复制到开发板的/lib文件夹下面。这点一定要注意，可怕的是个别开发板命名缺少库它却没有任何提示，唯独单单运行效果不对！如果遇到这个问题你要好好看看你的库了。 </p>
-<blockquote>
-<p>在你把库复制到开发板前，请事先到开发板看看时候有相应的库，这个相应的库可能是之前做的人留下的也可能其他原因，这不重要，重要的是这个遗留的东西可能对你的库造成干扰，让你百思不解，就是运行没效果！</p>
-</blockquote>
-<p>#检测程序#<br>下面的程序就是我当时的检测程序，如果你能顺利产生一个新的图片，那么恭喜你成功了！ </p>
-<blockquote>
-<p>这个时候你不要用啥显示窗口的函数等，你确定你的开发板有类似qt这类的图形化工具！？我犯过这个错误，当时显示出错了，我以为库有问题，最后才知道如果想图形化显示还需要qt之类工具的支持。</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"cv.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"cxcore.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"highgui.h"</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    IplImage* in;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,argc);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"in:%d,the1:%s\n"</span>,in,argv[<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">if</span>((in = cvLoadImage(argv[<span class="number">1</span>], <span class="number">0</span>)))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"load\n"</span>);</span><br><span class="line">        IplImage* out = cvCreateImage(</span><br><span class="line">            cvGetSize(in),</span><br><span class="line">            IPL_DEPTH_8U,</span><br><span class="line">            <span class="number">1</span>   </span><br><span class="line">        );</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"created\n"</span>);</span><br><span class="line">        cvCanny(in, out, <span class="number">20</span> , <span class="number">60</span>, <span class="number">3</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"down\n"</span>);</span><br><span class="line">        cvSaveImage(argv[<span class="number">2</span>], out, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"LoadImage failed!\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在pc机上编译此程序 </p>
-<pre><code>arm-linux-gcc -I/usr/local/arm/4.4.1/arm-no-linux-gnueabi/include/opencv -I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/include/ -L/usr/local/arm/4.4.1/arm-none-linux-gnueabi/lib -lcv -lcxcore -lhighgui -lpng -lpng12 -ljpeg -lz opencvTest.c -o opencvTest 
-</code></pre><blockquote>
-<p>上面的路径你根据自己的情况改动一下<br>将程序拷贝到开发板上，同时也拷贝一张图片到开发板上<br>我的源图片名为front.jpg 生成的图片名为front2.jpg<br>执行程序<br>./opencvTest front.jpg(原图片路径) front2.jpe(生成图片路径)<br>如果有front2.jpg生成，那么恭喜你成功了！</p>
-</blockquote>
-
+<p>#编译依赖库#<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我相信，你在编译库的时候可能会遇到很多问题，我下面提供的编译方法可能在你的机器上会报上一些错误，这很正常，把你的库错误信息交给百度，bing，google去解决！我这里说的是主体思路。另外关于这些库的用处，应该在两处起到作用：一，ubuntu编译交叉编译opencv2.0的时候用到；二，这些库要在移植的时候移植到开发板的/lib文件夹（/lib 这是开发板的默认库搜索路径，就是说你把库丢在这个目录就好了，不用设置什么搜索路径了，省事），具体哪些移入，我待会说。最后，arm-linux-gcc这个交叉编译器要预先装好，百度有很多教程。<br></p>
+        
       
 
       
