@@ -188,15 +188,8 @@
 <p>#编译依赖库#<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我相信，你在编译库的时候可能会遇到很多问题，我下面提供的编译方法可能在你的机器上会报上一些错误，这很正常，把你的库错误信息交给百度，bing，google去解决！我这里说的是主体思路。另外关于这些库的用处，应该在两处起到作用：一，ubuntu编译交叉编译opencv2.0的时候用到；二，这些库要在移植的时候移植到开发板的/lib文件夹（/lib 这是开发板的默认库搜索路径，就是说你把库丢在这个目录就好了，不用设置什么搜索路径了，省事），具体哪些移入，我待会说。最后，arm-linux-gcc这个交叉编译器要预先装好，百度有很多教程。</p>
 <ol>
 <li><p>libz</p>
-<pre><code>./configure –prefix=$OPENCV_DEPEND –shared 
-修改 Makefile 
-CC=arm-linux-gcc 
-AR=arm-linux-ar 
-RANLIB=arm-linux-ranlib 
-LDSHARED=arm-linux-gcc -shared-Wl,-soname,libz.so.1,–version-script,zlib.map 
-make 
-make install
-</code></pre></li>
+<p> ./configure –prefix=$OPENCV_DEPEND –shared<br> 修改 Makefile<br> CC=arm-linux-gcc<br> AR=arm-linux-ar<br> RANLIB=arm-linux-ranlib<br> LDSHARED=arm-linux-gcc -shared-Wl,-soname,libz.so.1,–version-script,zlib.map<br> make<br> make install</p>
+</li>
 <li><p>libjpeg</p>
 <pre><code>./configure–host=arm-linux –prefix=$OPENCV_DEPEND –enable-shared –enable-static 
 make 
