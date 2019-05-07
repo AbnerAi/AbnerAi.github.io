@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="https://yourname.github.io">
   <title>opencv2.0 交叉编译 | Abner Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="编译环境 编译：ubuntu16.04x86 目标机：cortex-a8 linux3.0 编译器：arm-linux-gcc   由于做项目的要求，我们需要将opencv移植到arm体系的开发板上，经过我的测试，在开发板：cortex-a8等都可以运行正常的。  #使用文件清单# #编译依赖库#&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;我相信，你在编译库的时候可能会">
+  <meta name="description" content="编译环境 编译：ubuntu16.04x86 目标机：cortex-a8 linux3.0 编译器：arm-linux-gcc   由于做项目的要求，我们需要将opencv移植到arm体系的开发板上，经过我的测试，在开发板：cortex-a8等都可以运行正常的。  使用文件清单 编译依赖库&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;我相信，你在编译库的时候可能会遇到很多">
 <meta name="keywords" content="opencv,交叉编译">
 <meta property="og:type" content="article">
 <meta property="og:title" content="opencv2.0 交叉编译">
 <meta property="og:url" content="https://yourname.github.io/2019/05/07/opencv2-0-交叉编译/index.html">
 <meta property="og:site_name" content="Abner Blog">
-<meta property="og:description" content="编译环境 编译：ubuntu16.04x86 目标机：cortex-a8 linux3.0 编译器：arm-linux-gcc   由于做项目的要求，我们需要将opencv移植到arm体系的开发板上，经过我的测试，在开发板：cortex-a8等都可以运行正常的。  #使用文件清单# #编译依赖库#&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;我相信，你在编译库的时候可能会">
+<meta property="og:description" content="编译环境 编译：ubuntu16.04x86 目标机：cortex-a8 linux3.0 编译器：arm-linux-gcc   由于做项目的要求，我们需要将opencv移植到arm体系的开发板上，经过我的测试，在开发板：cortex-a8等都可以运行正常的。  使用文件清单 编译依赖库&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;我相信，你在编译库的时候可能会遇到很多">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://yourname.github.io/2019/05/07/opencv2-0-交叉编译/List.jpg">
-<meta property="og:updated_time" content="2019-05-07T14:47:47.639Z">
+<meta property="og:updated_time" content="2019-05-07T14:51:33.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="opencv2.0 交叉编译">
-<meta name="twitter:description" content="编译环境 编译：ubuntu16.04x86 目标机：cortex-a8 linux3.0 编译器：arm-linux-gcc   由于做项目的要求，我们需要将opencv移植到arm体系的开发板上，经过我的测试，在开发板：cortex-a8等都可以运行正常的。  #使用文件清单# #编译依赖库#&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;我相信，你在编译库的时候可能会">
+<meta name="twitter:description" content="编译环境 编译：ubuntu16.04x86 目标机：cortex-a8 linux3.0 编译器：arm-linux-gcc   由于做项目的要求，我们需要将opencv移植到arm体系的开发板上，经过我的测试，在开发板：cortex-a8等都可以运行正常的。  使用文件清单 编译依赖库&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;我相信，你在编译库的时候可能会遇到很多">
 <meta name="twitter:image" content="https://yourname.github.io/2019/05/07/opencv2-0-交叉编译/List.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Abner Blog" type="application/atom+xml">
@@ -189,8 +189,8 @@
 <blockquote>
 <p>由于做项目的要求，我们需要将opencv移植到arm体系的开发板上，经过我的测试，在开发板：cortex-a8等都可以运行正常的。</p>
 </blockquote>
-<p>#使用文件清单#<br><img src="/2019/05/07/opencv2-0-交叉编译/List.jpg"></p>
-<p>#编译依赖库#<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我相信，你在编译库的时候可能会遇到很多问题，我下面提供的编译方法可能在你的机器上会报上一些错误，这很正常，把你的库错误信息交给百度，bing，google去解决！我这里说的是主体思路。另外关于这些库的用处，应该在两处起到作用：一，ubuntu编译交叉编译opencv2.0的时候用到；二，这些库要在移植的时候移植到开发板的/lib文件夹（/lib 这是开发板的默认库搜索路径，就是说你把库丢在这个目录就好了，不用设置什么搜索路径了，省事），具体哪些移入，我待会说。最后，arm-linux-gcc这个交叉编译器要预先装好，百度有很多教程。<br><a id="more"></a><br>1.libz</p>
+<h1 id="使用文件清单"><a href="#使用文件清单" class="headerlink" title="使用文件清单"></a>使用文件清单</h1><p><img src="/2019/05/07/opencv2-0-交叉编译/List.jpg"></p>
+<h1 id="编译依赖库"><a href="#编译依赖库" class="headerlink" title="编译依赖库"></a>编译依赖库</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我相信，你在编译库的时候可能会遇到很多问题，我下面提供的编译方法可能在你的机器上会报上一些错误，这很正常，把你的库错误信息交给百度，bing，google去解决！我这里说的是主体思路。另外关于这些库的用处，应该在两处起到作用：一，ubuntu编译交叉编译opencv2.0的时候用到；二，这些库要在移植的时候移植到开发板的/lib文件夹（/lib 这是开发板的默认库搜索路径，就是说你把库丢在这个目录就好了，不用设置什么搜索路径了，省事），具体哪些移入，我待会说。最后，arm-linux-gcc这个交叉编译器要预先装好，百度有很多教程。<br><a id="more"></a><br>1.libz</p>
 <pre><code>./configure –prefix=$OPENCV_DEPEND –shared 
 修改 Makefile 
 CC=arm-linux-gcc 
@@ -236,7 +236,7 @@ make install
 <blockquote>
 <p>在你把库复制到开发板前，请事先到开发板看看时候有相应的库，这个相应的库可能是之前做的人留下的也可能其他原因，这不重要，重要的是这个遗留的东西可能对你的库造成干扰，让你百思不解，就是运行没效果！</p>
 </blockquote>
-<p>#检测程序#<br>下面的程序就是我当时的检测程序，如果你能顺利产生一个新的图片，那么恭喜你成功了！ </p>
+<h1 id="检测程序"><a href="#检测程序" class="headerlink" title="检测程序"></a>检测程序</h1><p>下面的程序就是我当时的检测程序，如果你能顺利产生一个新的图片，那么恭喜你成功了！ </p>
 <blockquote>
 <p>这个时候你不要用啥显示窗口的函数等，你确定你的开发板有类似qt这类的图形化工具！？我犯过这个错误，当时显示出错了，我以为库有问题，最后才知道如果想图形化显示还需要qt之类工具的支持。</p>
 </blockquote>
