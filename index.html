@@ -156,6 +156,81 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-cvConvertScale用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/07/cvConvertScale用法/">cvConvertScale用法</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/07/cvConvertScale用法/" class="archive-article-date">
+  	<time datetime="2019-05-07T14:15:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#基本介绍#<br>ConvertScale<br>使用线性变换转换数组<br>void cvConvertScale( const CvArr<em> src, CvArr</em> dst, double scale=1, double shift=0 );<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> cvCvtScale cvConvertScale</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> cvScale cvConvertScale</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> cvConvert( src, dst ) cvConvertScale( (src), (dst), 1, 0 )</span></span><br></pre></td></tr></table></figure></p>
+<p>src<br>输入数组，dst 输出数组，scale 比例因子，shift 该加数被加到输入数组元素按比例缩放后得到的元素上。函数 cvConvertScale 有多个不同的目的因此就有多个同义函数（如上面的#define所示）。该函数首先对输入数组的元素进行比例缩放，然后将shift加到比例缩放后得到的各元素上，即： dst(I)=src(I)*scale + (shift,shift,…)，最后可选的类型转换将结果拷贝到输出数组。多通道的数组对各个通道是独立处理的。类型转换主要用舍入和溢出截断来完成。也就是如果缩放+转换后的结果值不能用输出数组元素类型值精确表达，就设置成在输出数组数据轴上最接近该数的值。如果，scale=1,shift=0 就不会进行比例缩放. 这是一个特殊的优化，相当于该函数的同义函数名：cvConvert 。如果原来数组和输出数组的类型相同，这是另一种特殊情形，可以被用于比例缩放和平移矩阵或图像，此时相当于该函数的同义函数名：cvScale。 使用不当，可能会出现下面的错误。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/07/cvConvertScale用法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-opencv2-0-交叉编译" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -489,15 +564,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随想</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">交叉编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随想</a>
               </li>
             
             <div class="clearfix"></div>
