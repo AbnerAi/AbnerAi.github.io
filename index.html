@@ -186,49 +186,46 @@
 </blockquote>
 <p>#使用文件清单#<br><img src="/2019/05/07/opencv2-0-交叉编译/List.jpg"></p>
 <p>#编译依赖库#<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我相信，你在编译库的时候可能会遇到很多问题，我下面提供的编译方法可能在你的机器上会报上一些错误，这很正常，把你的库错误信息交给百度，bing，google去解决！我这里说的是主体思路。另外关于这些库的用处，应该在两处起到作用：一，ubuntu编译交叉编译opencv2.0的时候用到；二，这些库要在移植的时候移植到开发板的/lib文件夹（/lib 这是开发板的默认库搜索路径，就是说你把库丢在这个目录就好了，不用设置什么搜索路径了，省事），具体哪些移入，我待会说。最后，arm-linux-gcc这个交叉编译器要预先装好，百度有很多教程。</p>
-<ol>
-<li><p>libz</p>
-<p> ./configure –prefix=$OPENCV_DEPEND –shared<br> 修改 Makefile<br> CC=arm-linux-gcc<br> AR=arm-linux-ar<br> RANLIB=arm-linux-ranlib<br> LDSHARED=arm-linux-gcc -shared-Wl,-soname,libz.so.1,–version-script,zlib.map<br> make<br> make install</p>
-</li>
-<li><p>libjpeg</p>
+<p>1.libz</p>
+<pre><code>./configure –prefix=$OPENCV_DEPEND –shared 
+修改 Makefile 
+CC=arm-linux-gcc 
+AR=arm-linux-ar 
+RANLIB=arm-linux-ranlib 
+LDSHARED=arm-linux-gcc -shared-Wl,-soname,libz.so.1,–version-script,zlib.map 
+make 
+make install
+</code></pre><p>2.libjpeg</p>
 <pre><code>./configure–host=arm-linux –prefix=$OPENCV_DEPEND –enable-shared –enable-static 
 make 
 makeinstall
-</code></pre></li>
-<li><p>libpng</p>
+</code></pre><p>3.libpng</p>
 <pre><code>./configure –host=arm-linux–prefix=   $OPENCV_DEPEND –enable-shared –enable-static 
 make 
 make install
-</code></pre></li>
-<li><p>yasm </p>
+</code></pre><p>4.yasm </p>
 <pre><code>CC=arm-linux-gcc ./configure–enable-shared –host=arm-linux –disable-asm –prefix=$OPENCV_DEPEND
 make
-  make install
-</code></pre></li>
-<li><p>libx264</p>
+    make install
+</code></pre><p>5.libx264</p>
 <pre><code>CC=arm-linux-gcc ./configure–enable-shared –host=arm-linux –disable-asm –prefix=$OPENCV_DEPEND 
 make 
 make install
-</code></pre></li>
-<li><p>libxvid</p>
+</code></pre><p>6.libxvid</p>
 <pre><code>cd build/generic 
 ./configure –prefix=$OPENCV_DEPEND –host=arm-linux –disable-assembly 
 make 
 make install
-</code></pre></li>
-<li><p>ffmpeg</p>
+</code></pre><p>7.ffmpeg</p>
 <pre><code>./configure –prefix=OPENCVDEPEND–enable−shared–disable−static–enable−gpl–enable−cross−compile–arch=arm–disable−stripping–target−os=linux–enable−libx264–enable−libxvid–cc=arm−linux−gcc–enable−swscale–extra−ldflags=−LOPENCVDEPEND–enable−shared–disable−static–enable−gpl–enable−cross−compile–arch=arm–disable−stripping–target−os=linux–enable−libx264–enable−libxvid–cc=arm−linux−gcc–enable−swscale–extra−ldflags=−LOPENCV_DEPEND/lib --extra-cflags=-I$OPENCV_DEPEND/include 
 make 
 make install 
-</code></pre></li>
-<li><p>opencv2.0 交叉编译  </p>
-<p> 进入opencv2.0.0目录：首先，修改configure文件:<br> <code>gedit configure</code> <br><br> 然后，搜索-lavcodec,定位到大概18182行的位置，在“FFMPEGLIBS=”-lavcodec -lavformat” 后添加 “-lswscale”， 修改之后变为：“FFMPEGLIBS=”-lavcodec -lavformat -lswscale $FFMPEG_SWSCALE_LIBS””，然后保存退出。<br> 在终端中输入： </p>
+</code></pre><p>8.opencv2.0 交叉编译  </p>
+<p>进入opencv2.0.0目录：首先，修改configure文件:<br>gedit configure <br><br>然后，搜索-lavcodec,定位到大概18182行的位置，在“FFMPEGLIBS=”-lavcodec -lavformat” 后添加 “-lswscale”， 修改之后变为：“FFMPEGLIBS=”-lavcodec -lavformat -lswscale $FFMPEG_SWSCALE_LIBS””，然后保存退出。<br>在终端中输入： </p>
 <pre><code>./configure –host=arm-none-linux-gnueabi –without-gtk –without-carbon –without-quicktime –without-1394libs –with-ffmpeg –without-python –without-swig –enable-static –enable-shared –disable-apps CXX=arm-linux-g++ CPPFLAGS=-I/usr/local/arm/4.3.2/arm-none-linux-gnueabi/include/ LDFLAGS=-L/ usr/local /arm/4.3.2/arm-none-linux-gnueabi/lib –with-v4l –prefix=/usr/local/arm/4.3.2/arm-none-linux-gnueabi CXXFLAGS=-O2
 make 
 make install
-</code></pre></li>
-</ol>
-<blockquote>
+</code></pre><blockquote>
 <p>opencv-2.0.0移植算是成功了。接下来，需要把所有的库烧写到arm板子上去，如果烧写到根目录的lib目录下，那么不用指定LD-LIBRARY-PATH，反之亦然。</p>
 </blockquote>
 <p>这个有个问题，你要移植的库除了第八步之后产生lib文件下的库文件(<font color="blue">以.a结尾的，.la结尾的通通不要移动，这不是动态库！移动的是后缀中有so这个字眼的，记住</font>)，还要移动的是之前第1~7步骤中的某些库，为什么说某些库，你需要啥就用啥呗！比如，你要用cvloadimage这个函数加载png 和 jpeg的图片，那个你就把png还有jpeg相应的库也给复制到开发板的/lib文件夹下面。这点一定要注意，可怕的是个别开发板命名缺少库它却没有任何提示，唯独单单运行效果不对！如果遇到这个问题你要好好看看你的库了。 </p>
