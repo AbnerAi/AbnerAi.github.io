@@ -173,6 +173,28 @@
           <div id="js-content" class="content-ll">
             <article id="post-opencv2-0-交叉编译" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+
+  
+  
+<div class="gitalk">
+    <div id="gitalk-container"></div>
+    <script type="text/javascript">
+        const gitalk = new Gitalk({
+            clientID: '',
+            clientSecret: '',
+            repo: 'AbnerAi.github.io',
+            owner: '',
+            admin: [''],
+            id: location.pathname,      // Ensure uniqueness and length less than 50
+            distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</div>
+
+
+  
     
       <header class="article-header">
         
@@ -414,26 +436,6 @@ make install
 
 
 
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: 'fa59bc8eb9b1d2eec538',
-  	clientSecret: 'ac2f507770264446f8c9a71ac225d55e98838825',
-  	repo: 'AbnerAi.github.io',
-  	owner: 'AbnerAi',
-  	admin: ['AbnerAi'],
-  	id: 'Tue May 07 2019 21:07:35 GMT+0800',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-  
           </div>
         </div>
       </div>
