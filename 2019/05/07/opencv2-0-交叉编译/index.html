@@ -400,24 +400,30 @@ make install
   
 
   
-  <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
-<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-  id: "https://yourname.github.io/2019/05/07/opencv2-0-交叉编译/",
-  owner: 'AbnerAi',
-  repo: 'https://github.com/AbnerAi/AbnerAi.github.io',
-  oauth: {
-    client_id: 'fa59bc8eb9b1d2eec538',
-    client_secret: 'ac2f507770264446f8c9a71ac225d55e98838825',
-  },
+
+
+
+
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: 'fa59bc8eb9b1d2eec538',
+  	clientSecret: 'ac2f507770264446f8c9a71ac225d55e98838825',
+  	repo: 'MyBlogComments',
+  	owner: 'Ziven-n',
+  	admin: ['Ziven-n'],
+  	id: 'Tue May 07 2019 21:07:35 GMT+0800',
+  	distractionFreeMode: 'true'
 })
-gitment.render('gitment-ctn')
+gitalk.render('gitalk-container') 
+}
 </script>
   
-
-
           </div>
         </div>
       </div>
