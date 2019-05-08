@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Abner Blog">
 <meta property="og:description" content="一般方法:一般情况+简单用例思想:数学归纳法   高级策略1.Paul Graham法2.分层接口思想3.见多识广，总结记忆一般过程  记住，有递必有归。但是，归，可以分为自然归和return任意归。 记住，不要想着用回溯和迭代去理解递归，那不是正确的方法。 记住，实践是获取知识的唯一来源。 递归是编程中一个相对难以理解但是却又很重要的概念. 对于从命令式语言开始学习编程的程序员天生对此有理解缺">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-08T12:54:47.024Z">
+<meta property="og:updated_time" content="2019-05-08T13:01:16.826Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计递归程序">
 <meta name="twitter:description" content="一般方法:一般情况+简单用例思想:数学归纳法   高级策略1.Paul Graham法2.分层接口思想3.见多识广，总结记忆一般过程  记住，有递必有归。但是，归，可以分为自然归和return任意归。 记住，不要想着用回溯和迭代去理解递归，那不是正确的方法。 记住，实践是获取知识的唯一来源。 递归是编程中一个相对难以理解但是却又很重要的概念. 对于从命令式语言开始学习编程的程序员天生对此有理解缺">
@@ -220,10 +220,12 @@
 <p>这种方法很像数学归纳法, 也是递归正确的思考方式, 事实上, 阶乘的递归表达方式就是1!=1，n!=(n-1)!×n(见wiki). 当程序实现符合算法描述的时候, 程序自然对了, 假如还不对, 那是算法本身错了…… 相对来说, n,n+1的情况为通用情况, 虽然比较复杂, 但是还能理解, 最重要的, 也是最容易被新手忽略的问题在于第1点, 也就是基本用例(base case)要对. 比如, 上例中, 我们去掉if n &lt;= 1的判断后, 代码会进入死循环, 永远不会结束.<br>使用递归<br>既然递归比迭代要难以理解, 为啥我们还需要递归呢? 从上面的例子来看, 自然意义不大, 但是很多东西的确用递归思维会更加简单……<br>经典的例子就是斐波那契数列, 在数学上, 斐波那契数列就是用递归来定义的:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">·F0 = <span class="number">0</span></span><br><span class="line">·F1 = <span class="number">1</span> </span><br><span class="line">·Fn = Fn – <span class="number">1</span> + Fn – <span class="number">2</span></span><br></pre></td></tr></table></figure></p>
 <p>有了递归的算法, 用程序实现实在再简单不过了:<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fibonacci</span><span class="params">(n)</span></span></span><br><span class="line"><span class="keyword">if</span> n == <span class="number">0</span> <span class="keyword">then</span></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">elsif</span> n == <span class="number">1</span> <span class="keyword">then</span></span><br><span class="line"><span class="keyword">return</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="keyword">return</span> fibonacci(n - <span class="number">1</span>) + fibonacci(n - <span class="number">2</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
 <p>改为用迭代实现呢? 你可以试试.<br>上面讲了怎么理解递归是正确的, 同时可以看到在有递归算法描述后, 其实程序很容易写, 那么最关键的问题就是, 我们怎么找到一个问题的递归算法呢?<br>Paul Graham提到, 你只需要做两件事情:</p>
+<blockquote>
 <ol>
 <li>你必须要示范如何解决问题的一般情况, 通过将问题切分成有限小并更小的子问题.</li>
 <li>你必须要示范如何通过有限的步骤, 来解决最小的问题(基本用例).如果这两件事完成了, 那问题就解决了. 因为递归每次都将问题变得更小, 而一个有限的问题终究会被解决的, 而最小的问题仅需几个有限的步骤就能解决.</li>
 </ol>
+</blockquote>
 <p>这个过程还是数学归纳法的方法, 只不过和上面提到的一个是验证, 一个是证明.<br>现在我们用这个方法来寻找汉诺塔这个游戏的解决方法.(这其实是数学家发明的游戏)<br>有三根杆子A，B，C。A杆上有N个(N&gt;1)穿孔圆盘，盘的尺寸由下到上依次变小。要求按下列规则将所有圆盘移至C杆：</p>
 <blockquote>
 <p>1.每次只能移动一个圆盘.<br>2.大盘不能叠在小盘上面.</p>
@@ -575,11 +577,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">行动</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">人生</a>
+                <a href="javascript:void(0)" class="js-tag color3">语录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -587,7 +585,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">语录</a>
+                <a href="javascript:void(0)" class="js-tag color3">行动</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">人生</a>
               </li>
              
               <li class="article-tag-list-item">
