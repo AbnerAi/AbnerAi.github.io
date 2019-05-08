@@ -6,22 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://yourname.github.io">
-  <title>cvConvertScale用法 | Abner Blog</title>
+  <title>Tag: 心理学 | Abner Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基本介绍ConvertScale使用线性变换转换数组void cvConvertScale( const CvArr src, CvArr dst, double scale=1, double shift=0 );123#define cvCvtScale cvConvertScale#define cvScale cvConvertScale#define cvConvert( src, ds">
-<meta name="keywords" content="opencv">
-<meta property="og:type" content="article">
-<meta property="og:title" content="cvConvertScale用法">
-<meta property="og:url" content="https://yourname.github.io/2019/05/07/cvConvertScale用法/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Abner Blog">
+<meta property="og:url" content="https://yourname.github.io/tags/心理学/index.html">
 <meta property="og:site_name" content="Abner Blog">
-<meta property="og:description" content="基本介绍ConvertScale使用线性变换转换数组void cvConvertScale( const CvArr src, CvArr dst, double scale=1, double shift=0 );123#define cvCvtScale cvConvertScale#define cvScale cvConvertScale#define cvConvert( src, ds">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://yourname.github.io/2019/05/07/cvConvertScale用法/error.jpg">
-<meta property="og:updated_time" content="2019-05-07T14:55:45.588Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cvConvertScale用法">
-<meta name="twitter:description" content="基本介绍ConvertScale使用线性变换转换数组void cvConvertScale( const CvArr src, CvArr dst, double scale=1, double shift=0 );123#define cvCvtScale cvConvertScale#define cvScale cvConvertScale#define cvConvert( src, ds">
-<meta name="twitter:image" content="https://yourname.github.io/2019/05/07/cvConvertScale用法/error.jpg">
+<meta name="twitter:title" content="Abner Blog">
   
     <link rel="alternative" href="/atom.xml" title="Abner Blog" type="application/atom+xml">
   
@@ -162,218 +155,62 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-cvConvertScale用法" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      cvConvertScale用法
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/05/08/墨菲定律/" class="archive-article-date">
+  	<time datetime="2019-05-08T10:48:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-08</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/05/08/墨菲定律/">墨菲定律</a>
     </h1>
   
 
-        
-        <a href="/2019/05/07/cvConvertScale用法/" class="archive-article-date">
-  	<time datetime="2019-05-07T14:15:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-07</time>
-</a>
-        
-		
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h1><p>ConvertScale<br>使用线性变换转换数组<br>void cvConvertScale( const CvArr<em> src, CvArr</em> dst, double scale=1, double shift=0 );<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> cvCvtScale cvConvertScale</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> cvScale cvConvertScale</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> cvConvert( src, dst ) cvConvertScale( (src), (dst), 1, 0 )</span></span><br></pre></td></tr></table></figure></p>
-<a id="more"></a> 
-<p>src 输入数组，dst 输出数组，scale 比例因子，shift 该加数被加到输入数组元素按比例缩放后得到的元素上。函数 cvConvertScale 有多个不同的目的因此就有多个同义函数（如上面的#define所示）。该函数首先对输入数组的元素进行比例缩放，然后将shift加到比例缩放后得到的各元素上，即： dst(I)=src(I)*scale + (shift,shift,…)，最后可选的类型转换将结果拷贝到输出数组。多通道的数组对各个通道是独立处理的。类型转换主要用舍入和溢出截断来完成。也就是如果缩放+转换后的结果值不能用输出数组元素类型值精确表达，就设置成在输出数组数据轴上最接近该数的值。如果，scale=1,shift=0 就不会进行比例缩放. 这是一个特殊的优化，相当于该函数的同义函数名：cvConvert 。如果原来数组和输出数组的类型相同，这是另一种特殊情形，可以被用于比例缩放和平移矩阵或图像，此时相当于该函数的同义函数名：cvScale。 使用不当，可能会出现下面的错误。<br><img src="/2019/05/07/cvConvertScale用法/error.jpg"></p>
-<p>请你思考一下几个问题： </p>
-<p>1.check这两个图或者矩阵是不是初始化了<br><br>2.如果初始化了，初始化的大小是不是一样，即两者有没有相同的长宽<br><br>3.两者的depth深度是不是一样，即是不是一个是三通道的，一个是单通道的。<br>或者一个是单通道32位浮点类型，一个是单通道8位整形类型</p>
-<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><p>opencv 8位图像转32位图像 cvConvertScale<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IplImage *im8 = cvLoadImage(argv[<span class="number">1</span>]);</span><br><span class="line">IplImage *im32 = cvCreateImage(cvSize(im8-&gt;width, im8-&gt;height), <span class="number">32</span>, <span class="number">3</span>);</span><br><span class="line">cvConvertScale(im8, im32, <span class="number">1</span>/<span class="number">255.</span>);</span><br></pre></td></tr></table></figure></p>
-<h1 id="问题问答"><a href="#问题问答" class="headerlink" title="问题问答"></a>问题问答</h1><p><strong>问</strong>：《学习OpenCV》这本书，里面讲到 ”如果我们有一个 8 位的 RGB 灰度图像并想把它变为 16 位有符号的图像，就可以调用函数 cvConvertScale() 来做这个工作。“<br>我有连个问题，一个是：既然是RGB图像，为何又是灰度图像？灰度图像不是单通道的吗？但是我把网上的程序应用到RGB彩色图像上，发现也可以操作。<br>第二个问题是：网上用这个的时候，都将 scale 项设为了 1/255.0 ，我明白这里的意思是将转换后的图像像素值限定在 0 到 255 之间，可是为什么这种转换会导致最后的像素值大于 255 呢？<br><br><strong>答</strong>：这个函数本质处理只是 矩阵操作，所以用在彩色图片也没问题吧，只要类型设置对了。<br>scale 项设为了 1/255.0，是想把像素 规约到【0,1】的区间<br>不是0到255</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/weixin.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">心理学</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://yourname.github.io/2019/05/07/cvConvertScale用法/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/05/08/墨菲定律/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          墨菲定律
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/05/07/opencv2-0-交叉编译/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">opencv2.0 交叉编译</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
-
-			  
-	<div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: 'fa59bc8eb9b1d2eec538',
-  	clientSecret: 'ac2f507770264446f8c9a71ac225d55e98838825',
-  	repo: 'AbnerAi.github.io',
-  	owner: 'AbnerAi',
-  	admin: ['AbnerAi'],
-  	id: 'Tue May 07 2019 22:15:52 GMT+0800',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-	
           </div>
         </div>
       </div>
@@ -397,9 +234,9 @@ gitalk.render('gitalk-container')
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
