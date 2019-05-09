@@ -4,6 +4,9 @@
     <title><![CDATA[FMS+OBS简单直播方案]]></title>
     <url>%2F2019%2F05%2F08%2FFMS-OBS%E7%AE%80%E5%8D%95%E7%9B%B4%E6%92%AD%E6%96%B9%E6%A1%88%2F</url>
     <content type="text"><![CDATA[一、软件安装 1、安装FlashMediaServer （版本自选）。 安装时建议将FMS的端口设置为：1935 （取消80端口，否则可能影响IIS工作） 2、安装Open BroadCaster Software v0.64b(安装的时候会有病毒提示，切记要忽略，否则会被当成病毒给干掉。) 3、安装Adobe Flash Media Live Encoder 3 (摄像头直播) 3、安装Adobe Flash CS4（编写flash程序）二、启动直播 1、启动FMS 第一步：启动服务器 这两个都启动。 第二步：启动管理器 启动之后大概是这个样子: 填写你设定的用户名和密码：进入后大概是这个样子： 第三步：建立实例： 如此便成功创建了直播频道里。 2、运行Adobe Flash Media Live Encoder 3 将直播频道填入参数： 然后点击“start”，即开启摄像头直播了，可以通过如下方式观看： 在浏览器中间地址栏输入直播频道： 便可看到直播画面了。就不放图了~ 3.开启OBS软件 启动后大概是这个样子： 然后设定直播推送参数： 然后点击：”开启串流”，即可在频道中看到直播桌面的画面里。]]></content>
+      <categories>
+        <category>2019年5月</category>
+      </categories>
       <tags>
         <tag>直播</tag>
         <tag>OBS</tag>
@@ -14,6 +17,9 @@
     <title><![CDATA[设计递归程序]]></title>
     <url>%2F2019%2F05%2F08%2F%E8%AE%BE%E8%AE%A1%E9%80%92%E5%BD%92%E7%A8%8B%E5%BA%8F%2F</url>
     <content type="text"><![CDATA[一般方法:一般情况+简单用例思想:数学归纳法 高级策略1.Paul Graham法2.分层接口思想3.见多识广，总结记忆一般过程 记住，有递必有归。但是，归，可以分为自然归和return任意归。 记住，不要想着用回溯和迭代去理解递归，那不是正确的方法。 记住，实践是获取知识的唯一来源。 递归是编程中一个相对难以理解但是却又很重要的概念. 对于从命令式语言开始学习编程的程序员天生对此有理解缺陷, 而对于从类似C++这种对函数式编程范式不友好的语言开始学习编程的程序员就更加如此了.(比如我自己) 碰巧(其实不巧)最近在读这本书(这本书国内没有引进, 网上只有巨贵的亚马逊卖的原版, 我读的是网上的中文版), Paul Graham在书中讲述的如何写递归函数的部分, 让我印象深刻. 因为原书是讲Lisp的, 当然这个部分也是用Lisp作为例子描述的, 考虑到国内会看这本书的人太少, 能看懂Lisp的就更不多了, 我这里根据自己的理解, 重新整理一下. 最重要的是, 书中原来的例子太少, 太简单, 我自己提供了一些额外的, 并且更加复杂的例子. 以期对问题能有更好的理解. 什么是递归 理解递归 使用递归 递归的问题 参考 什么是递归迭代的是人，递归的是神–L. Peter Deutsch简单的定义: “当函数直接或者间接调用自己时，则发生了递归.” 说起来简单, 但是理解起来复杂, 因为递归并不直观, 也不符合我们的思维习惯, 相对于递归, 我们更加容易理解迭代. 因为我们日常生活中的思维方式就是一步接一步的, 并且能够理解一件事情做了N遍这个概念. 而我们日常生活中几乎不会有递归思维的出现.举个简单的例子, 即在C/C++中计算一个字符串的长度. 下面是传统的方式, 我们一般都这样通过迭代来计算长度, 也很好理解.12345678size_t length(const char *str) &#123;size_t length = 0;while (*str != 0) &#123;++length;++str;&#125;return length;&#125; 而事实上, 我们也可以通过递归来完成这样的任务.123456size_t length(const char *str) &#123;if (*str == 0) &#123;return 0;&#125;return length(++str) + 1;&#125; 只不过, 我们都不这么做罢了, 虽然这样的实现有的时候可能代码更短, 但是很明显, 从思维上来说更加难以理解一些. 当然, 我是说假如你不是习惯于函数式语言的话. 这个例子相对简单, 稍微看一下还是能明白吧.迭代的算法可以这样描述: 从第一个字符开始判断字符串的每一个字符, 当该字符不为0的时候, 该字符串的长度加一.递归的算法可以这样描述: 当前字符串的长度等于当前字符串除了首字符后, 剩下的字符串长度+1.作为这么简单的例子, 两种算法其实大同小异, 虽然我们习惯迭代, 但是, 也能看到, 递归的算法无论是从描述上还是实际实现上, 并不比迭代要麻烦.理解递归在初学递归的时候, 看到一个递归实现, 我们总是难免陷入不停的回溯验证之中, 因为回溯就像反过来思考迭代, 这是我们习惯的思维方式, 但是实际上递归不需要这样来验证. 比如, 另外一个常见的例子是阶乘的计算. 阶乘的定义: “一个正整数的阶乘（英语：factorial）是所有小于或等于该数的正整数的积，并且0的阶乘为1。” 以下是Ruby的实现:1234567def factorial(n)if n &lt;= 1 thenreturn 1elsereturn n * factorial(n - 1)endend 我们怎么判断这个阶乘的递归计算是否是正确的呢? 先别说测试, 我说我们读代码的时候怎么判断呢?回溯的思考方式是这么验证的, 比如当n = 4时, 那么factoria(4)等于4 factoria(3), 而factoria(3)等于3 factoria(2), factoria(2)等于2 factoria(1), 等于2 1, 所以factoria(4)等于4 3 2 * 1. 这个结果正好等于阶乘4的迭代定义.用回溯的方式思考虽然可以验证当n = 某个较小数值是否正确, 但是其实无益于理解.Paul Graham提到一种方法, 给我很大启发, 该方法如下: 当n=0, 1的时候, 结果正确. 假设函数对于n是正确的, 函数对n+1结果也正确.如果这两点是成立的，我们知道这个函数对于所有可能的n都是正确的。 这种方法很像数学归纳法, 也是递归正确的思考方式, 事实上, 阶乘的递归表达方式就是1!=1，n!=(n-1)!×n(见wiki). 当程序实现符合算法描述的时候, 程序自然对了, 假如还不对, 那是算法本身错了…… 相对来说, n,n+1的情况为通用情况, 虽然比较复杂, 但是还能理解, 最重要的, 也是最容易被新手忽略的问题在于第1点, 也就是基本用例(base case)要对. 比如, 上例中, 我们去掉if n &lt;= 1的判断后, 代码会进入死循环, 永远不会结束.使用递归既然递归比迭代要难以理解, 为啥我们还需要递归呢? 从上面的例子来看, 自然意义不大, 但是很多东西的确用递归思维会更加简单……经典的例子就是斐波那契数列, 在数学上, 斐波那契数列就是用递归来定义的:123·F0 = 0·F1 = 1 ·Fn = Fn – 1 + Fn – 2 有了递归的算法, 用程序实现实在再简单不过了:123456789def fibonacci(n)if n == 0 thenreturn 0elsif n == 1 thenreturn 1elsereturn fibonacci(n - 1) + fibonacci(n - 2)endend 改为用迭代实现呢? 你可以试试.上面讲了怎么理解递归是正确的, 同时可以看到在有递归算法描述后, 其实程序很容易写, 那么最关键的问题就是, 我们怎么找到一个问题的递归算法呢?Paul Graham提到, 你只需要做两件事情: 你必须要示范如何解决问题的一般情况, 通过将问题切分成有限小并更小的子问题. 你必须要示范如何通过有限的步骤, 来解决最小的问题(基本用例).如果这两件事完成了, 那问题就解决了. 因为递归每次都将问题变得更小, 而一个有限的问题终究会被解决的, 而最小的问题仅需几个有限的步骤就能解决. 这个过程还是数学归纳法的方法, 只不过和上面提到的一个是验证, 一个是证明.现在我们用这个方法来寻找汉诺塔这个游戏的解决方法.(这其实是数学家发明的游戏)有三根杆子A，B，C。A杆上有N个(N&gt;1)穿孔圆盘，盘的尺寸由下到上依次变小。要求按下列规则将所有圆盘移至C杆： 1.每次只能移动一个圆盘.2.大盘不能叠在小盘上面. 这个游戏在只有3个盘的时候玩起来较为简单, 盘越多, 就越难, 玩进去后, 你就会进入一种不停的通过回溯来推导下一步该干什么的状态, 这是比较难的. 我记得第一次碰到这个游戏好像是在大航海时代某一代游戏里面, 当时就觉得挺有意思的. 推荐大家都实际的玩一下这个游戏, 试试你脑袋能想清楚几个盘的情况.现在我们来应用Paul Graham的方法思考这个游戏.一般情况:当有N个圆盘在A上, 我们已经找到办法将其移到C杠上了, 我们怎么移动N+1个圆盘到C杠上呢? 很简单, 我们首先用将N个圆盘移动到C上的方法将N个圆盘都移动到B上, 然后再把第N+1个圆盘(最后一个)移动到C上, 再用同样的方法将在B杠上的N个圆盘移动到C上. 问题解决.基本用例:当有1个圆盘在A上, 我们直接把圆盘移动到C上即可.算法描述大概就是上面这样了, 其实也可以看作思维的过程, 相对来说还是比较自然的. 下面是Ruby解: def hanoi(n, from, to, other) if n == 1 then puts from + ' -&gt; ' + to else hanoi(n-1, from, other, to) hanoi(1, from, to, other) hanoi(n-1, other, to, from) end end 当n=3时的输出: A -C A -B C -B A -C B -A B -C A -C 上述代码中, from, to, other的作用其实也就是提供一个杆子的替代符, 在n=1时, 其实也就相当于直接移动. 看起来这么复杂的问题, 其实用递归这么容易, 没有想到吧. 要是想用迭代来解决这个问题呢? 还是你自己试试吧, 你试的越多, 就能越体会到递归的好处.递归的问题当然, 这个世界上没有啥时万能的, 递归也不例外, 首先递归并不一定适用所有情况, 很多情况用迭代远远比用递归好了解, 其次, 相对来说, 递归的效率往往要低于迭代的实现, 同时, 内存好用也会更大, 虽然这个时候可以用尾递归来优化, 但是尾递归并不是一定能简单做到. 参考 Ansi Common Lisp 精通递归程序设计]]></content>
+      <categories>
+        <category>2019年5月</category>
+      </categories>
       <tags>
         <tag>递归</tag>
         <tag>编程思想</tag>
@@ -23,6 +29,9 @@
     <title><![CDATA[拖延症最佳解决方案]]></title>
     <url>%2F2019%2F05%2F08%2F%E6%8B%96%E5%BB%B6%E7%97%87%E6%9C%80%E4%BD%B3%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%2F</url>
     <content type="text"><![CDATA[拖延症并不是医学上的病症，只是一组症状。因此，所谓的「治疗」当然只是一种「校正」。 什么？！你还不知道这一点？这篇文章会向你介绍这些年被误解了的拖延症。点击阅读→拖延症是病吗？不要再拖了，快打开这篇文章看看！ 强迫症、焦虑症、抑郁症、多动症（ADHD）、失眠，也会表现为拖延。对于这些由精神问题引起的拖延，「治本」才是关键，即及时干预精神疾病，进行药物和心理方面的专业治疗，不能用一句「嗐，拖延症而已」，就忽视了隐藏在其之后的精神心理问题。 所以，在开篇，仍然要郑重强调：假如你有不可自拔的拖延症状，尤其还感觉伴随其他心理方面的问题，有必要先请精神科医生诊断一下，你是否存在更严重的问题。 如果你只是烦恼自己一拖再拖、不到截止日期前绝不行动的做派，从认知、行为方式和调节情绪等方面入手改正，或许是个不错的主意。 在此，我总结了一些跟日常生活结合紧密的方法，它们也许能有效帮助你对付拖延。 清单——替大脑记住。 清单可以帮我们收纳任务，避免遗忘，减少依靠大脑记忆的忧虑和压力。 单一清单往往一段时间后就会失效，因为我们习惯先简单后复杂、先轻松后沉重，导致一些重要任务被反复拖延，形成积压。 复杂清单可以通过不同清单之间的传递，实现分类、拆分、优先级、缓冲和释放等智能过程，最终有效地减少拖延。遗憾的是，罗列复杂清单本身就需要学习和技巧，有可能因为要列出清单，而多了一个拖延的理由。 推荐一个折中的办法，就是轻量级清单。可以在手机上下载一个任务清单类的 App，挑选一个功能简单，容易上手的，一样可以实现分类、拆分、优先级等功能。习惯于使用清单后，你的拖延可能就会减少一部分。 不过千万别在罗列清单上耗费太多时间，反倒让清单本身，成了你拖延的因素。 沉浸——工作还是休息？ 清单是一种「防御性」的办法。我还总结出了一套独家「进攻秘笈」——沉浸工作法，它能显著提高执行的效率。 用手机设置 4 个闹钟，分别在 15 分钟、30 分钟、45 分钟和 1 小时之后。启动任务时，以及每次闹钟响起时，默念：「眼前的 15 分钟，我选择沉浸工作还是休息？」 如果选择沉浸，就让自己专心做这项任务，15 分钟内排除所有外界干扰。 如果太专注于工作而没听到或者忘了闹钟，视为自动选择一次新沉浸。 如果选择休息，就以「非参与」的方式完成 15 分钟休息。 注意：「非参与」指的是不陷入电脑或手机，用其他的方式休息，比如喝水、散步、听音乐、打电话、闲聊等。 这个方法适合多数的书面任务：阅读、翻译、报告、写论文、编剧本、做方案……试一次就知道了。 容器——合适的环境和状态。你上午的精神状态可能比晚上好很多，你在图书馆会比在寝室更容易看书，你在人心凝聚的团队中工作热情更高。 时段、地点、氛围、习惯、组织文化等，都可以成为打败拖延的有利因素，只要你有心。 我们把这一切称为「容器」。 精简办公室和家、精简信息系统、切换到更佳地点、利用提醒物和屏蔽物、精心设计环境，往往可以帮助你轻松战胜拖延。 叙事——你就是那个英雄。 咨询师或者互助会的小伙伴们，会帮助并引导你说出你自己不曾察觉的「拖延」原因，进而帮助你自行找出问题的解决之道。这就是「叙事」的技能。 在叙事过程中，小伙伴们最常说的一句话会是「你是怎么办到的」，并会将焦点放在你自身的努力上。实际上，就是在团队的鼓励下，引导你自己走出「拖延」的困境。 有一种「英雄之旅」理论，即把英雄的冒险历程划分成了召唤、拒绝、见导师、进入深渊、逃亡、与伙伴合作、归来、决战等若干阶段。你会发现这一连串的结构适用于世界各民族的英雄传说，不分肤色和种族。 你可以跟小伙伴们结成联盟，可以借助社群的力量，为自己设计游戏一般的剧情，让自己成为「英雄」，一个不容易拖延的人。咨询师和互助会的成员们也会帮助你挑战你觉得一个人难以应付的生活方式，通过鼓励你完成这个不拖延的「英雄式」的故事，来重新塑造你自己的生活。]]></content>
+      <categories>
+        <category>2019年5月</category>
+      </categories>
       <tags>
         <tag>生活</tag>
         <tag>心理学</tag>
@@ -33,6 +42,9 @@
     <title><![CDATA[我的个人语录]]></title>
     <url>%2F2019%2F05%2F08%2F%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%AF%AD%E5%BD%95%2F</url>
     <content type="text"><![CDATA[1.一切都是为了认知的加深！(如何思考) 2.Nothing is isolated. 3.直觉思维(Be water, my friend)(最高境界) 4.你不是真正的理解-如履薄冰.(如何认识自己) 5.实践(独立思考)是获取知识的唯一来源，总结是清晰思路的最短路径.(如何实践) 6.知识的贯通是有意识的主动性的由大脑主体向客观事物发起的联系，且应具有经常性，重复性，发散性。否则的后果是，知而不用，知而不熟，知而不整，无法真正跃进到高一层境界.(本部分结合波利亚解题表) 7.生活时空论. 8.养成边理解边记忆的习惯.(最小记忆时间单位7s)(如何记忆)—分析透了再记忆。 9.区别卓越人和一般人的是长时工作记忆能力！ 10.不要浪费自己的时间和精力在一些无关紧要的人和事上，时间会告诉你那是多么的没有意义。集中精力做好自己的事。 11.如果在学习领域有什么可以和实践相提并论的话，那一定是总结。 12.效率问题:时常鞭策自己，让自己加速。 13.独立实践+对比总结+理解记忆。 14.张峰: 为什么我要多讲课，不是留更多时间让你们自己看？！假如学生悟性不够，那么让学生自己看简直就是浪费时间。 15.「Stay Hungry . Stay Foolish.」 16.独立 规范 专注 17.永远不要低估老师在学习过程中的重要性 18.读中带背，背中带读，读读背背，背背读读。 19.什么叫会？熟悉？就是遇到它，无论在方法，思路，计算等每一个过程内不能有一丝犹豫！捕捉细节信息！ 20.实践与总结，老师与独立思考。 21.善始善终 22.一本教科书看一遍，一本习题册做一遍，都是没有用的！精华部分没有吸收，永远浮在表面。 23.与刻意练习同样重要的是刻意总结。]]></content>
+      <categories>
+        <category>2019年5月</category>
+      </categories>
       <tags>
         <tag>语录</tag>
         <tag>深思</tag>
@@ -42,6 +54,9 @@
     <title><![CDATA[人生]]></title>
     <url>%2F2019%2F05%2F08%2F%E4%BA%BA%E7%94%9F%2F</url>
     <content type="text"><![CDATA[沧海一孤舟,漂泊去远方。 来日还方长,我心在远航。 船头前驶舵,大海路茫茫。 今日在彼岸,明日去何方。]]></content>
+      <categories>
+        <category>2019年5月</category>
+      </categories>
       <tags>
         <tag>诗词</tag>
       </tags>
@@ -50,6 +65,9 @@
     <title><![CDATA[最可怕的生活状态]]></title>
     <url>%2F2019%2F05%2F08%2F%E4%B8%80%E7%9C%BC%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E8%87%AA%E5%B7%B1%E5%87%A0%E5%8D%81%E5%B9%B4%E5%90%8E%E7%9A%84%E7%8A%B6%E6%80%81%2F</url>
     <content type="text"><![CDATA[每天看起来好像很闲，却总有一些杂七杂八的小事不得不去处理，又累，又感觉自己什么事情也没有做成。 前段时间，很久没联系的朋友在动态上更新的这样一句话。 后来想想，好像是这样。 但人之所以越来越累，觉得自己一事无成，是因为生活一成不变，没有目标。 上大学的时候，也不算忙吧？ 但好歹有个考试不能挂科的目标，好死不活地吊着你。 读高中的时候，高考很忙吧？ 但大家都在一个教室里，头顶日光灯，为了同一个目标努力奋斗，每天都过得比现在充实。 而毕业出来之后，突然就不知道自己到底能做什么，想要什么。 明明才二十来岁，却感觉自己一辈子就这样了。 每天除了上班下班，好像很闲，但总有些不知道什么样的破事来烦着你。 最主要的是，这些事情它琐碎，无用，但你还是不得不去处理。 一天明明上班八个钟，却感觉自己二十四小时围绕着工作转。 好不容易到了周末，往床上一躺，只想睡到天荒地老。 别提出门逛街了，叫个外卖有时候都嫌累。 什么事情都没做成，却觉得很疲倦，很丧，很难过，说不出自己到底怎么了。 上高中那会，大家挑灯夜战，那时候觉得高考就是人生中最大的坎。 但不是的。 人生中最可怕的，不是在这种有目标的比拼中输给了别人。 而是眼下这种一成不变的生活。 看不到波澜，也不知道应该从哪里去用力，一拳打在棉花上，很累，也完全提不起劲。 生活像提锤打铁，把凌厉的你拍平，把你锤炼，把你打磨，最终你的意志一层层消减。 一眼，就可以看到自己几十年后的状态。 这才是最可怕的。]]></content>
+      <categories>
+        <category>2019年5月</category>
+      </categories>
       <tags>
         <tag>随想</tag>
         <tag>网文</tag>
@@ -60,6 +78,9 @@
     <title><![CDATA[墨菲定律]]></title>
     <url>%2F2019%2F05%2F08%2F%E5%A2%A8%E8%8F%B2%E5%AE%9A%E5%BE%8B%2F</url>
     <content type="text"><![CDATA[1、任何事都没有表面看起来那么简单 2、所有的事都会比你预计的时间长 3、会出错的事总会出错 4、如果你担心某种情况发生，那么它就更有可能发生。]]></content>
+      <categories>
+        <category>2019年5月</category>
+      </categories>
       <tags>
         <tag>心理学</tag>
       </tags>
@@ -68,6 +89,9 @@
     <title><![CDATA[cvConvertScale用法]]></title>
     <url>%2F2019%2F05%2F07%2FcvConvertScale%E7%94%A8%E6%B3%95%2F</url>
     <content type="text"><![CDATA[基本介绍ConvertScale使用线性变换转换数组void cvConvertScale( const CvArr src, CvArr dst, double scale=1, double shift=0 );123#define cvCvtScale cvConvertScale#define cvScale cvConvertScale#define cvConvert( src, dst ) cvConvertScale( (src), (dst), 1, 0 ) src 输入数组，dst 输出数组，scale 比例因子，shift 该加数被加到输入数组元素按比例缩放后得到的元素上。函数 cvConvertScale 有多个不同的目的因此就有多个同义函数（如上面的#define所示）。该函数首先对输入数组的元素进行比例缩放，然后将shift加到比例缩放后得到的各元素上，即： dst(I)=src(I)*scale + (shift,shift,…)，最后可选的类型转换将结果拷贝到输出数组。多通道的数组对各个通道是独立处理的。类型转换主要用舍入和溢出截断来完成。也就是如果缩放+转换后的结果值不能用输出数组元素类型值精确表达，就设置成在输出数组数据轴上最接近该数的值。如果，scale=1,shift=0 就不会进行比例缩放. 这是一个特殊的优化，相当于该函数的同义函数名：cvConvert 。如果原来数组和输出数组的类型相同，这是另一种特殊情形，可以被用于比例缩放和平移矩阵或图像，此时相当于该函数的同义函数名：cvScale。 使用不当，可能会出现下面的错误。 请你思考一下几个问题： 1.check这两个图或者矩阵是不是初始化了2.如果初始化了，初始化的大小是不是一样，即两者有没有相同的长宽3.两者的depth深度是不是一样，即是不是一个是三通道的，一个是单通道的。或者一个是单通道32位浮点类型，一个是单通道8位整形类型 例子opencv 8位图像转32位图像 cvConvertScale123IplImage *im8 = cvLoadImage(argv[1]);IplImage *im32 = cvCreateImage(cvSize(im8-&gt;width, im8-&gt;height), 32, 3);cvConvertScale(im8, im32, 1/255.); 问题问答问：《学习OpenCV》这本书，里面讲到 ”如果我们有一个 8 位的 RGB 灰度图像并想把它变为 16 位有符号的图像，就可以调用函数 cvConvertScale() 来做这个工作。“我有连个问题，一个是：既然是RGB图像，为何又是灰度图像？灰度图像不是单通道的吗？但是我把网上的程序应用到RGB彩色图像上，发现也可以操作。第二个问题是：网上用这个的时候，都将 scale 项设为了 1/255.0 ，我明白这里的意思是将转换后的图像像素值限定在 0 到 255 之间，可是为什么这种转换会导致最后的像素值大于 255 呢？答：这个函数本质处理只是 矩阵操作，所以用在彩色图片也没问题吧，只要类型设置对了。scale 项设为了 1/255.0，是想把像素 规约到【0,1】的区间不是0到255]]></content>
+      <categories>
+        <category>2019年5月</category>
+      </categories>
       <tags>
         <tag>opencv</tag>
       </tags>
@@ -76,6 +100,9 @@
     <title><![CDATA[opencv2.0 交叉编译]]></title>
     <url>%2F2019%2F05%2F07%2Fopencv2-0-%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%2F</url>
     <content type="text"><![CDATA[编译环境 编译：ubuntu16.04x86 目标机：cortex-a8 linux3.0 编译器：arm-linux-gcc 由于做项目的要求，我们需要将opencv移植到arm体系的开发板上，经过我的测试，在开发板：cortex-a8等都可以运行正常的。 使用文件清单 编译依赖库&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我相信，你在编译库的时候可能会遇到很多问题，我下面提供的编译方法可能在你的机器上会报上一些错误，这很正常，把你的库错误信息交给百度，bing，google去解决！我这里说的是主体思路。另外关于这些库的用处，应该在两处起到作用：一，ubuntu编译交叉编译opencv2.0的时候用到；二，这些库要在移植的时候移植到开发板的/lib文件夹（/lib 这是开发板的默认库搜索路径，就是说你把库丢在这个目录就好了，不用设置什么搜索路径了，省事），具体哪些移入，我待会说。最后，arm-linux-gcc这个交叉编译器要预先装好，百度有很多教程。 1.libz ./configure –prefix=$OPENCV_DEPEND –shared 修改 Makefile CC=arm-linux-gcc AR=arm-linux-ar RANLIB=arm-linux-ranlib LDSHARED=arm-linux-gcc -shared-Wl,-soname,libz.so.1,–version-script,zlib.map make make install 2.libjpeg ./configure–host=arm-linux –prefix=$OPENCV_DEPEND –enable-shared –enable-static make makeinstall 3.libpng ./configure –host=arm-linux–prefix= $OPENCV_DEPEND –enable-shared –enable-static make make install 4.yasm CC=arm-linux-gcc ./configure–enable-shared –host=arm-linux –disable-asm –prefix=$OPENCV_DEPEND make make install 5.libx264 CC=arm-linux-gcc ./configure–enable-shared –host=arm-linux –disable-asm –prefix=$OPENCV_DEPEND make make install 6.libxvid cd build/generic ./configure –prefix=$OPENCV_DEPEND –host=arm-linux –disable-assembly make make install 7.ffmpeg ./configure –prefix=OPENCVDEPEND–enable−shared–disable−static–enable−gpl–enable−cross−compile–arch=arm–disable−stripping–target−os=linux–enable−libx264–enable−libxvid–cc=arm−linux−gcc–enable−swscale–extra−ldflags=−LOPENCVDEPEND–enable−shared–disable−static–enable−gpl–enable−cross−compile–arch=arm–disable−stripping–target−os=linux–enable−libx264–enable−libxvid–cc=arm−linux−gcc–enable−swscale–extra−ldflags=−LOPENCV_DEPEND/lib --extra-cflags=-I$OPENCV_DEPEND/include make make install 8.opencv2.0 交叉编译 进入opencv2.0.0目录：首先，修改configure文件:gedit configure 然后，搜索-lavcodec,定位到大概18182行的位置，在“FFMPEGLIBS=”-lavcodec -lavformat” 后添加 “-lswscale”， 修改之后变为：“FFMPEGLIBS=”-lavcodec -lavformat -lswscale $FFMPEG_SWSCALE_LIBS””，然后保存退出。在终端中输入： ./configure –host=arm-none-linux-gnueabi –without-gtk –without-carbon –without-quicktime –without-1394libs –with-ffmpeg –without-python –without-swig –enable-static –enable-shared –disable-apps CXX=arm-linux-g++ CPPFLAGS=-I/usr/local/arm/4.3.2/arm-none-linux-gnueabi/include/ LDFLAGS=-L/ usr/local /arm/4.3.2/arm-none-linux-gnueabi/lib –with-v4l –prefix=/usr/local/arm/4.3.2/arm-none-linux-gnueabi CXXFLAGS=-O2 make make install opencv-2.0.0移植算是成功了。接下来，需要把所有的库烧写到arm板子上去，如果烧写到根目录的lib目录下，那么不用指定LD-LIBRARY-PATH，反之亦然。 这个有个问题，你要移植的库除了第八步之后产生lib文件下的库文件(以.a结尾的，.la结尾的通通不要移动，这不是动态库！移动的是后缀中有so这个字眼的，记住)，还要移动的是之前第1~7步骤中的某些库，为什么说某些库，你需要啥就用啥呗！比如，你要用cvloadimage这个函数加载png 和 jpeg的图片，那个你就把png还有jpeg相应的库也给复制到开发板的/lib文件夹下面。这点一定要注意，可怕的是个别开发板命名缺少库它却没有任何提示，唯独单单运行效果不对！如果遇到这个问题你要好好看看你的库了。 在你把库复制到开发板前，请事先到开发板看看时候有相应的库，这个相应的库可能是之前做的人留下的也可能其他原因，这不重要，重要的是这个遗留的东西可能对你的库造成干扰，让你百思不解，就是运行没效果！ 检测程序下面的程序就是我当时的检测程序，如果你能顺利产生一个新的图片，那么恭喜你成功了！ 这个时候你不要用啥显示窗口的函数等，你确定你的开发板有类似qt这类的图形化工具！？我犯过这个错误，当时显示出错了，我以为库有问题，最后才知道如果想图形化显示还需要qt之类工具的支持。 123456789101112131415161718192021222324252627282930#include&lt;stdio.h&gt;#include&lt;stdlib.h&gt;#include"cv.h"#include"cxcore.h"#include"highgui.h"int main(int argc, char** argv )&#123; IplImage* in; printf("%d\n",argc); printf("in:%d,the1:%s\n",in,argv[1]); if((in = cvLoadImage(argv[1], 0))) &#123; printf("load\n"); IplImage* out = cvCreateImage( cvGetSize(in), IPL_DEPTH_8U, 1 ); printf("created\n"); cvCanny(in, out, 20 , 60, 3); printf("down\n"); cvSaveImage(argv[2], out, 0); return 0; &#125; else &#123; printf("LoadImage failed!\n"); &#125; return -1;&#125; 在pc机上编译此程序 arm-linux-gcc -I/usr/local/arm/4.4.1/arm-no-linux-gnueabi/include/opencv -I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/include/ -L/usr/local/arm/4.4.1/arm-none-linux-gnueabi/lib -lcv -lcxcore -lhighgui -lpng -lpng12 -ljpeg -lz opencvTest.c -o opencvTest 上面的路径你根据自己的情况改动一下将程序拷贝到开发板上，同时也拷贝一张图片到开发板上我的源图片名为front.jpg 生成的图片名为front2.jpg执行程序./opencvTest front.jpg(原图片路径) front2.jpe(生成图片路径)如果有front2.jpg生成，那么恭喜你成功了！]]></content>
+      <categories>
+        <category>2019年5月</category>
+      </categories>
       <tags>
         <tag>opencv</tag>
         <tag>交叉编译</tag>
@@ -85,6 +112,9 @@
     <title><![CDATA[Hello World]]></title>
     <url>%2F2019%2F05%2F07%2F%E5%AE%89%E5%AE%B6%E5%95%A6%2F</url>
     <content type="text"><![CDATA[从今天开始，正式在github io入驻了。我喜欢github是多方面的：免费私有仓库、顶级软件开源圣地… 总之，我喜欢这里。]]></content>
+      <categories>
+        <category>2019年5月</category>
+      </categories>
       <tags>
         <tag>随想</tag>
       </tags>
@@ -93,6 +123,9 @@
     <title><![CDATA[生活时空论]]></title>
     <url>%2F2013%2F03%2F23%2F%E7%94%9F%E6%B4%BB%E6%97%B6%E7%A9%BA%E8%AE%BA%2F</url>
     <content type="text"><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们处在一个不断发展的社会中，每天在忙碌着自己的事。 不论是琐事，或者是自己认为重要的事情。总之，我们每天对应的时间段里，都在做事， 即便是睡觉，也是一种“事”,如果，我们在做一件让我们很投入的事情的时候，你会发现时间过的很快！当然，爱因思坦的《相对论》也许会以一种幽默的形式去告诉你为什么。但我想分析的是，假如我们在很投入的做一些事时，你可以“适量”去加入一点“自控”在里面，把周围的事物看成无声的，然后只是景物在眼球中转动，而此时，由于你很投入的在做一件事，所以你一直处于“动”的状态。你会发现，其实所谓的重不重要都不再重要，就像浮云一般…… 然后，我们可以去想象，当你有明确的目标去做一件事时，请不要随自己的性格去做，而应当分析过后再去行动，然后再把所有的不相关因素看作“无声”，一副无声的画面出现了…… 你把自己的“自控”加进入，安静的去做该做的事吧！ 而后的晚上，你可以躺在床上，静心的去思考，也许你很累，但你是充实的；也许你很轻松，但你却是后悔的或者是某种快乐的充实。总之，生活和时间与空间对应，从未分离，因此，我们可以把它们的结合看成机会，慢慢的去体会其中的道理，把需要看淡的事情看的淡一点，再淡一点… 所有的一切只为晚上可以睡个好觉，为了以后的无数个夜晚安静的无烦扰的休息。]]></content>
+      <categories>
+        <category>2013年3月</category>
+      </categories>
       <tags>
         <tag>生活</tag>
         <tag>深思</tag>
