@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yourname.github.io/"/>
-  <updated>2019-05-09T07:18:17.138Z</updated>
+  <updated>2019-05-09T07:21:52.736Z</updated>
   <id>https://yourname.github.io/</id>
   
   <author>
@@ -21,13 +21,13 @@
     <link href="https://yourname.github.io/2019/05/08/FMS-OBS%E7%AE%80%E5%8D%95%E7%9B%B4%E6%92%AD%E6%96%B9%E6%A1%88/"/>
     <id>https://yourname.github.io/2019/05/08/FMS-OBS简单直播方案/</id>
     <published>2019-05-08T13:50:01.000Z</published>
-    <updated>2019-05-09T07:18:17.138Z</updated>
+    <updated>2019-05-09T07:21:52.736Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="一、软件安装"><a href="#一、软件安装" class="headerlink" title="一、软件安装"></a>一、软件安装</h1><p>1、安装FlashMediaServer （版本自选）。</p><p>安装时建议将FMS的端口设置为：1935 （取消80端口，否则可能影响IIS工作）</p><p>2、安装Open BroadCaster Software v0.64b(安装的时候会有病毒提示，切记要忽略，否则会被当成病毒给干掉。)</p><p>3、安装Adobe Flash Media Live Encoder 3 (摄像头直播)</p><p>3、安装Adobe Flash CS4（编写flash程序）<br><a id="more"></a></p><h1 id="二、启动直播"><a href="#二、启动直播" class="headerlink" title="二、启动直播"></a>二、启动直播</h1><h2 id="1、启动FMS"><a href="#1、启动FMS" class="headerlink" title="1、启动FMS"></a>1、启动FMS</h2><p>第一步：启动服务器</p><div align="center"><br><img src="/2019/05/08/FMS-OBS简单直播方案/1.jpg"><br></div><p>这两个都启动。</p><p>第二步：启动管理器</p><div align="center"><br><img src="/2019/05/08/FMS-OBS简单直播方案/2.jpg"><br></div><p>启动之后大概是这个样子:</p><div align="center"><br><img src="/2019/05/08/FMS-OBS简单直播方案/3.jpg"><br></div><p>填写你设定的用户名和密码：进入后大概是这个样子：</p><div align="center"><br><img src="/2019/05/08/FMS-OBS简单直播方案/4.jpg"><br></div><p>第三步：建立实例：</p><div align="center"><br><img src="/2019/05/08/FMS-OBS简单直播方案/5.jpg"><br></div><p>如此便成功创建了直播频道里。</p><h2 id="2、运行Adobe-Flash-Media-Live-Encoder-3"><a href="#2、运行Adobe-Flash-Media-Live-Encoder-3" class="headerlink" title="2、运行Adobe Flash Media Live Encoder 3"></a>2、运行Adobe Flash Media Live Encoder 3</h2><p>将直播频道填入参数：</p><div align="center"><br><img src="/2019/05/08/FMS-OBS简单直播方案/9.jpg"><br></div><p>然后点击“start”，即开启摄像头直播了，可以通过如下方式观看：</p><p>在浏览器中间地址栏输入直播频道：</p><div align="center"><br><img src="/2019/05/08/FMS-OBS简单直播方案/6.jpg"><br></div><p>便可看到直播画面了。就不放图了~</p><h2 id="3-开启OBS软件"><a href="#3-开启OBS软件" class="headerlink" title="3.开启OBS软件"></a>3.开启OBS软件</h2><p>启动后大概是这个样子：</p><div align="center"><br><img src="/2019/05/08/FMS-OBS简单直播方案/7.jpg"><br></div><p>然后设定直播推送参数：</p><div align="center"><br><img src="/2019/05/08/FMS-OBS简单直播方案/8.jpg"><br></div><p>然后点击：”开启串流”，即可在频道中看到直播桌面的画面里。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h1><p>1、安装FlashMediaServer （版本自选）。</p><p>安装时建议将FMS的端口设置为：1935 （取消80端口，否则可能影响IIS工作）</p><p>2、安装Open BroadCaster Software v0.64b(安装的时候会有病毒提示，切记要忽略，否则会被当成病毒给干掉。)</p><p>3、安装Adobe Flash Media Live Encoder 3 (摄像头直播)</p><p>3、安装Adobe Flash CS4（编写flash程序）<br><a id="more"></a></p><h1 id="启动直播"><a href="#启动直播" class="headerlink" title="启动直播"></a>启动直播</h1><h2 id="启动FMS"><a href="#启动FMS" class="headerlink" title="启动FMS"></a>启动FMS</h2><p>第一步：启动服务器</p><div align="center"><br><img src="/2019/05/08/FMS-OBS简单直播方案/1.jpg"><br></div><p>这两个都启动。</p><p>第二步：启动管理器</p><div align="center"><br><img src="/2019/05/08/FMS-OBS简单直播方案/2.jpg"><br></div><p>启动之后大概是这个样子:</p><div align="center"><br><img src="/2019/05/08/FMS-OBS简单直播方案/3.jpg"><br></div><p>填写你设定的用户名和密码：进入后大概是这个样子：</p><div align="center"><br><img src="/2019/05/08/FMS-OBS简单直播方案/4.jpg"><br></div><p>第三步：建立实例：</p><div align="center"><br><img src="/2019/05/08/FMS-OBS简单直播方案/5.jpg"><br></div><p>如此便成功创建了直播频道里。</p><h2 id="运行Adobe-Flash-Media-Live-Encoder-3"><a href="#运行Adobe-Flash-Media-Live-Encoder-3" class="headerlink" title="运行Adobe Flash Media Live Encoder 3"></a>运行Adobe Flash Media Live Encoder 3</h2><p>将直播频道填入参数：</p><div align="center"><br><img src="/2019/05/08/FMS-OBS简单直播方案/9.jpg"><br></div><p>然后点击“start”，即开启摄像头直播了，可以通过如下方式观看：</p><p>在浏览器中间地址栏输入直播频道：</p><div align="center"><br><img src="/2019/05/08/FMS-OBS简单直播方案/6.jpg"><br></div><p>便可看到直播画面了。就不放图了~</p><h2 id="开启OBS软件"><a href="#开启OBS软件" class="headerlink" title="开启OBS软件"></a>开启OBS软件</h2><p>启动后大概是这个样子：</p><div align="center"><br><img src="/2019/05/08/FMS-OBS简单直播方案/7.jpg"><br></div><p>然后设定直播推送参数：</p><div align="center"><br><img src="/2019/05/08/FMS-OBS简单直播方案/8.jpg"><br></div><p>然后点击：”开启串流”，即可在频道中看到直播桌面的画面里。</p>]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;一、软件安装&quot;&gt;&lt;a href=&quot;#一、软件安装&quot; class=&quot;headerlink&quot; title=&quot;一、软件安装&quot;&gt;&lt;/a&gt;一、软件安装&lt;/h1&gt;&lt;p&gt;1、安装FlashMediaServer （版本自选）。&lt;/p&gt;
+      &lt;h1 id=&quot;软件安装&quot;&gt;&lt;a href=&quot;#软件安装&quot; class=&quot;headerlink&quot; title=&quot;软件安装&quot;&gt;&lt;/a&gt;软件安装&lt;/h1&gt;&lt;p&gt;1、安装FlashMediaServer （版本自选）。&lt;/p&gt;
 &lt;p&gt;安装时建议将FMS的端口设置为：1935 （取消80端口，否则可能影响IIS工作）&lt;/p&gt;
 &lt;p&gt;2、安装Open BroadCaster Software v0.64b(安装的时候会有病毒提示，切记要忽略，否则会被当成病毒给干掉。)&lt;/p&gt;
 &lt;p&gt;3、安装Adobe Flash Media Live Encoder 3 (摄像头直播)&lt;/p&gt;
@@ -98,9 +98,9 @@
       <category term="2019年5月" scheme="https://yourname.github.io/categories/2019%E5%B9%B45%E6%9C%88/"/>
     
     
-      <category term="生活" scheme="https://yourname.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
-    
       <category term="心理学" scheme="https://yourname.github.io/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
+    
+      <category term="生活" scheme="https://yourname.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
     
       <category term="行动" scheme="https://yourname.github.io/tags/%E8%A1%8C%E5%8A%A8/"/>
     
@@ -187,9 +187,9 @@
     
       <category term="随想" scheme="https://yourname.github.io/tags/%E9%9A%8F%E6%83%B3/"/>
     
-      <category term="网文" scheme="https://yourname.github.io/tags/%E7%BD%91%E6%96%87/"/>
-    
       <category term="生活" scheme="https://yourname.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="网文" scheme="https://yourname.github.io/tags/%E7%BD%91%E6%96%87/"/>
     
   </entry>
   
@@ -321,9 +321,9 @@
       <category term="2013年3月" scheme="https://yourname.github.io/categories/2013%E5%B9%B43%E6%9C%88/"/>
     
     
-      <category term="生活" scheme="https://yourname.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
-    
       <category term="深思" scheme="https://yourname.github.io/tags/%E6%B7%B1%E6%80%9D/"/>
+    
+      <category term="生活" scheme="https://yourname.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
     
       <category term="人生" scheme="https://yourname.github.io/tags/%E4%BA%BA%E7%94%9F/"/>
     
