@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yourname.github.io/about/index.html</loc>
+    
+    <lastmod>2019-05-09T05:40:26.933Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yourname.github.io/categories/index.html</loc>
     
     <lastmod>2019-05-09T05:36:21.582Z</lastmod>
