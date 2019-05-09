@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yourname.github.io/categories/index.html</loc>
+    
+    <lastmod>2019-05-09T05:36:21.582Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yourname.github.io/2019/05/08/%E4%B8%80%E7%9C%BC%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E8%87%AA%E5%B7%B1%E5%87%A0%E5%8D%81%E5%B9%B4%E5%90%8E%E7%9A%84%E7%8A%B6%E6%80%81/</loc>
     
     <lastmod>2019-05-09T05:18:53.766Z</lastmod>
@@ -75,13 +82,6 @@
     <loc>https://yourname.github.io/2019/05/07/cvConvertScale%E7%94%A8%E6%B3%95/</loc>
     
     <lastmod>2019-05-09T05:17:00.093Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yourname.github.io/categories/index.html</loc>
-    
-    <lastmod>2019-05-09T05:02:52.208Z</lastmod>
     
   </url>
   
