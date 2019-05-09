@@ -2,15 +2,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
   
 
 
@@ -18,7 +9,7 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -29,6 +20,8 @@
 
 
 
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -44,21 +37,10 @@
 
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
 
-<link rel="stylesheet" href="/css/main.css?v=7.1.1">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -66,20 +48,63 @@
 
 
 
-<script id="hexo.configurations">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Abner Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Abner Blog">
+<meta property="og:url" content="https://yourname.github.io/index.html">
+<meta property="og:site_name" content="Abner Blog">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Abner Blog">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    version: '7.1.1',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
-    back2top: true,
-    back2top_sidebar: false,
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -91,36 +116,12 @@
 </script>
 
 
-  
 
-
-
-
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Abner Blog">
-<meta property="og:url" content="https://yourname.github.io/index.html">
-<meta property="og:site_name" content="Abner Blog">
-<meta property="og:locale" content="default">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Abner Blog">
-
-
-
-  <link rel="alternate" href="/atom.xml" title="Abner Blog" type="application/atom+xml">
-
-
-
-  
-  
   <link rel="canonical" href="https://yourname.github.io/">
 
 
 
-<script id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
+
 
   <title>Abner Blog</title>
   
@@ -131,35 +132,6 @@
 
 
 
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
 
 </head>
 
@@ -176,7 +148,7 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
+  <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
@@ -186,16 +158,13 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
       
         <p class="site-subtitle">记录自己的成长</p>
       
-    
-    
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Navigationsleiste an/ausschalten">
+    <button>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -203,55 +172,35 @@
   </div>
 </div>
 
-
-
 <nav class="site-nav">
+  
+
   
     <ul id="menu" class="menu">
       
         
-        
-        
-          
-          <li class="menu-item menu-item-home menu-item-active">
-
-    
-    
-    
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
       
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
-
-  </li>
         
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-
-    
-    
-    
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
       
-    
 
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
-
-  </li>
-
-      
       
     </ul>
-  
-
-  
-    
-
   
 
   
@@ -259,20 +208,12 @@
 
 
 
-  
-
-
-
-</div>
+ </div>
     </header>
-
-    
-
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -283,8 +224,6 @@
 
   
   
-  
-
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -311,46 +250,31 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/05/08/FMS-OBS简单直播方案/" class="post-title-link" itemprop="url">FMS+OBS简单直播方案</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/05/08/FMS-OBS简单直播方案/" itemprop="url">FMS+OBS简单直播方案</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-
-              
-                
-              
-
-              <time title="Erstellt: 2019-05-08 21:50:01 / Geändert am: 22:07:45" itemprop="dateCreated datePublished" datetime="2019-05-08T21:50:01+08:00">2019-05-08</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-08T21:50:01+08:00">
+                2019-05-08
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -384,29 +308,21 @@
 <p>3、安装Adobe Flash Media Live Encoder 3 (摄像头直播)</p>
 <p>3、安装Adobe Flash CS4（编写flash程序）<br></p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/05/08/FMS-OBS简单直播方案/#more" rel="contents">
-                Weiterlesen &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/08/FMS-OBS简单直播方案/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-      
-    
     
 
     
@@ -439,8 +355,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -465,46 +379,31 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/05/08/设计递归程序/" class="post-title-link" itemprop="url">设计递归程序</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/05/08/设计递归程序/" itemprop="url">设计递归程序</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-
-              
-                
-              
-
-              <time title="Erstellt: 2019-05-08 20:43:19 / Geändert am: 21:01:16" itemprop="dateCreated datePublished" datetime="2019-05-08T20:43:19+08:00">2019-05-08</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-08T20:43:19+08:00">
+                2019-05-08
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -542,29 +441,21 @@
 <p>记住，实践是获取知识的唯一来源。</p>
 <p>递归是编程中一个相对难以理解但是却又很重要的概念. 对于从命令式语言开始学习编程的程序员天生对此有理解缺陷, 而对于从类似C++这种对函数式编程范式不友好的语言开始学习编程的程序员就更加如此了.(比如我自己) 碰巧(其实不巧)最近在读这本书(这本书国内没有引进, 网上只有巨贵的亚马逊卖的原版, 我读的是网上的中文版), Paul Graham在书中讲述的如何写递归函数的部分, 让我印象深刻. 因为原书是讲Lisp的, 当然这个部分也是用Lisp作为例子描述的, 考虑到国内会看这本书的人太少, 能看懂Lisp的就更不多了, 我这里根据自己的理解, 重新整理一下. 最重要的是, 书中原来的例子太少, 太简单, 我自己提供了一些额外的, 并且更加复杂的例子. 以期对问题能有更好的理解.<br></p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/05/08/设计递归程序/#more" rel="contents">
-                Weiterlesen &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/08/设计递归程序/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-      
-    
     
 
     
@@ -597,8 +488,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -623,46 +512,31 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/05/08/拖延症最佳解决方案/" class="post-title-link" itemprop="url">拖延症最佳解决方案</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/05/08/拖延症最佳解决方案/" itemprop="url">拖延症最佳解决方案</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-
-              
-                
-              
-
-              <time title="Erstellt: 2019-05-08 19:56:25 / Geändert am: 20:13:00" itemprop="dateCreated datePublished" datetime="2019-05-08T19:56:25+08:00">2019-05-08</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-08T19:56:25+08:00">
+                2019-05-08
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -692,29 +566,21 @@
           <blockquote>
 <p>拖延症并不是医学上的病症，只是一组症状。因此，所谓的「治疗」当然只是一种「校正」。 什么？！你还不知道这一点？这篇文章会向你介绍这些年被误解了的拖延症。点击阅读→拖延症是病吗？不要再拖了，快打开这篇文章看看！ 强迫症、焦虑症、抑郁症、多动症（ADHD）、失眠，也会表现为拖延。对于这些由精神问题引起的拖延，「治本」才是关键，即及时干预精神疾病，进行药物和心理方面的专业治疗，不能用一句「嗐，拖延症而已」，就忽视了隐藏在其之后的精神心理问题。 所以，在开篇，仍然要郑重强调：假如你有不可自拔的拖延症状，尤其还感觉伴随其他心理方面的问题，有必要先请精神科医生诊断一下，你是否存在更严重的问题。 如果你只是烦恼自己一拖再拖、不到截止日期前绝不行动的做派，从认知、行为方式和调节情绪等方面入手改正，或许是个不错的主意。 在此，我总结了一些跟日常生活结合紧密的方法，它们也许能有效帮助你对付拖延。<br></p></blockquote>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/05/08/拖延症最佳解决方案/#more" rel="contents">
-                Weiterlesen &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/08/拖延症最佳解决方案/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-      
-    
     
 
     
@@ -747,8 +613,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -773,46 +637,31 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/05/08/我的个人语录/" class="post-title-link" itemprop="url">我的个人语录</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/05/08/我的个人语录/" itemprop="url">我的个人语录</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-
-              
-                
-              
-
-              <time title="Erstellt: 2019-05-08 19:53:38 / Geändert am: 19:54:51" itemprop="dateCreated datePublished" datetime="2019-05-08T19:53:38+08:00">2019-05-08</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-08T19:53:38+08:00">
+                2019-05-08
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -868,18 +717,12 @@
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-      
-    
     
 
     
@@ -912,8 +755,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -938,46 +779,31 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/05/08/人生/" class="post-title-link" itemprop="url">人生</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/05/08/人生/" itemprop="url">人生</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-
-              
-                
-              
-
-              <time title="Erstellt: 2019-05-08 19:05:35 / Geändert am: 19:46:01" itemprop="dateCreated datePublished" datetime="2019-05-08T19:05:35+08:00">2019-05-08</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-08T19:05:35+08:00">
+                2019-05-08
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -1010,18 +836,12 @@
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-      
-    
     
 
     
@@ -1054,8 +874,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -1080,46 +898,31 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/05/08/一眼，就可以看到自己几十年后的状态/" class="post-title-link" itemprop="url">最可怕的生活状态</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/05/08/一眼，就可以看到自己几十年后的状态/" itemprop="url">最可怕的生活状态</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-
-              
-                
-              
-
-              <time title="Erstellt: 2019-05-08 18:50:55 / Geändert am: 18:56:36" itemprop="dateCreated datePublished" datetime="2019-05-08T18:50:55+08:00">2019-05-08</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-08T18:50:55+08:00">
+                2019-05-08
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -1153,29 +956,21 @@
 <p>后来想想，好像是这样。</p>
 <p>但人之所以越来越累，觉得自己一事无成，是因为生活一成不变，没有目标。<br></p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/05/08/一眼，就可以看到自己几十年后的状态/#more" rel="contents">
-                Weiterlesen &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/08/一眼，就可以看到自己几十年后的状态/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-      
-    
     
 
     
@@ -1208,8 +1003,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -1234,46 +1027,31 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/05/08/墨菲定律/" class="post-title-link" itemprop="url">墨菲定律</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/05/08/墨菲定律/" itemprop="url">墨菲定律</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-
-              
-                
-              
-
-              <time title="Erstellt: 2019-05-08 18:48:05 / Geändert am: 18:49:45" itemprop="dateCreated datePublished" datetime="2019-05-08T18:48:05+08:00">2019-05-08</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-08T18:48:05+08:00">
+                2019-05-08
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -1310,18 +1088,12 @@
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-      
-    
     
 
     
@@ -1354,8 +1126,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -1380,46 +1150,31 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/05/07/cvConvertScale用法/" class="post-title-link" itemprop="url">cvConvertScale用法</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/05/07/cvConvertScale用法/" itemprop="url">cvConvertScale用法</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-
-              
-                
-              
-
-              <time title="Erstellt: 2019-05-07 22:15:52 / Geändert am: 22:55:45" itemprop="dateCreated datePublished" datetime="2019-05-07T22:15:52+08:00">2019-05-07</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-07T22:15:52+08:00">
+                2019-05-07
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -1448,29 +1203,21 @@
         
           <h1 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h1><p>ConvertScale<br>使用线性变换转换数组<br>void cvConvertScale( const CvArr<em> src, CvArr</em> dst, double scale=1, double shift=0 );<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> cvCvtScale cvConvertScale</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> cvScale cvConvertScale</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> cvConvert( src, dst ) cvConvertScale( (src), (dst), 1, 0 )</span></span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/05/07/cvConvertScale用法/#more" rel="contents">
-                Weiterlesen &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/07/cvConvertScale用法/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-      
-    
     
 
     
@@ -1503,8 +1250,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -1529,46 +1274,31 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/05/07/opencv2-0-交叉编译/" class="post-title-link" itemprop="url">opencv2.0 交叉编译</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/05/07/opencv2-0-交叉编译/" itemprop="url">opencv2.0 交叉编译</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-
-              
-                
-              
-
-              <time title="Erstellt: 2019-05-07 21:07:35 / Geändert am: 22:52:33" itemprop="dateCreated datePublished" datetime="2019-05-07T21:07:35+08:00">2019-05-07</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-07T21:07:35+08:00">
+                2019-05-07
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -1603,29 +1333,21 @@
 <blockquote>
 <p>由于做项目的要求，我们需要将opencv移植到arm体系的开发板上，经过我的测试，在开发板：cortex-a8等都可以运行正常的。<br></p></blockquote>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/05/07/opencv2-0-交叉编译/#more" rel="contents">
-                Weiterlesen &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/07/opencv2-0-交叉编译/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-      
-    
     
 
     
@@ -1658,8 +1380,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -1684,46 +1404,31 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/05/07/安家啦/" class="post-title-link" itemprop="url">Hello World</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/05/07/安家啦/" itemprop="url">Hello World</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-
-              
-                
-              
-
-              <time title="Erstellt: 2019-05-07 16:43:18 / Geändert am: 19:22:09" itemprop="dateCreated datePublished" datetime="2019-05-07T16:43:18+08:00">2019-05-07</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-07T16:43:18+08:00">
+                2019-05-07
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -1759,18 +1464,12 @@
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-      
-    
     
 
     
@@ -1799,12 +1498,15 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
 
           </div>
+          
+
+
           
 
         </div>
@@ -1820,81 +1522,48 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">Abner</p>
-              <div class="site-description motion-element" itemprop="description"></div>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">11</span>
-                    <span class="site-state-item-name">Artikel</span>
-                  </a>
-                </div>
-              
+          <nav class="site-state motion-element">
 
+            
+              <div class="site-state-item site-state-posts">
               
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
 
+            
+
+            
               
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">16</span>
-                    <span class="site-state-item-name">schlagwörter</span>
-                  
-                </div>
               
-            </nav>
-          
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
 
           
             <div class="feed-link motion-element">
@@ -1908,19 +1577,15 @@
           
 
           
-
           
 
           
           
 
-          
-            
-          
           
 
         </div>
-      </div>
+      </section>
 
       
 
@@ -1928,7 +1593,6 @@
 
     </div>
   </aside>
-  
 
 
         
@@ -1938,18 +1602,16 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
+  <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Abner</span>
 
   
-
-  
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -1957,13 +1619,12 @@
 
 
 
-  <div class="theme-info">Design – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
 
 
         
-
 
 
 
@@ -1984,14 +1645,11 @@
 
     
 
-    
-
-    
   </div>
 
   
 
-<script>
+<script type="text/javascript">
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -2005,11 +1663,7 @@
 
 
 
-
-
-
-
-
+  
 
 
 
@@ -2023,62 +1677,95 @@
 
 
   
-  <script src="/lib/jquery/index.js?v=2.1.3"></script>
-
   
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/js/utils.js?v=7.1.1"></script>
-
-  <script src="/js/motion.js?v=7.1.1"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/schemes/muse.js?v=7.1.1"></script>
-
-
-
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
-
-
-  <script src="/js/next-boot.js?v=7.1.1"></script>
-
-
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
   
 
   
-
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
   
 
   
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
 
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
 
 
   
 
 
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
 
 
+
+  
   
 
   
 
   
 
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
   
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
 
   
 
@@ -2087,11 +1774,6 @@
   
 
   
-
-  
-
-  
-
   
 
   
