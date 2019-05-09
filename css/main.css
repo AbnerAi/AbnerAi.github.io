@@ -1881,7 +1881,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #b50913;
+  background: #fff;
 }
 .feed-link,
 .chat {
@@ -2871,9 +2871,6 @@ hr {
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
   -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
 }
-.menu-item a {
-  color: #fbda41;
-}
-.menu-item-active a {
-  color: #555;
+.sidebar sidebar-active {
+  color: #f00;
 }
