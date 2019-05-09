@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yourname.github.io/tags/index.html</loc>
+    
+    <lastmod>2019-05-09T08:30:11.145Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yourname.github.io/categories/index.html</loc>
+    
+    <lastmod>2019-05-09T08:30:00.500Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yourname.github.io/about/index.html</loc>
+    
+    <lastmod>2019-05-09T08:29:48.691Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yourname.github.io/2019/05/08/FMS-OBS%E7%AE%80%E5%8D%95%E7%9B%B4%E6%92%AD%E6%96%B9%E6%A1%88/</loc>
     
     <lastmod>2019-05-09T07:21:52.736Z</lastmod>
@@ -12,20 +33,6 @@
     <loc>https://yourname.github.io/2019/05/08/%E8%AE%BE%E8%AE%A1%E9%80%92%E5%BD%92%E7%A8%8B%E5%BA%8F/</loc>
     
     <lastmod>2019-05-09T07:19:55.808Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yourname.github.io/about/index.html</loc>
-    
-    <lastmod>2019-05-09T05:45:37.750Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yourname.github.io/categories/index.html</loc>
-    
-    <lastmod>2019-05-09T05:36:21.582Z</lastmod>
     
   </url>
   
@@ -89,13 +96,6 @@
     <loc>https://yourname.github.io/2019/05/07/cvConvertScale%E7%94%A8%E6%B3%95/</loc>
     
     <lastmod>2019-05-09T05:17:00.093Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yourname.github.io/tags/index.html</loc>
-    
-    <lastmod>2019-05-09T05:01:53.098Z</lastmod>
     
   </url>
   
