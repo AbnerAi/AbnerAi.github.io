@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[pdf测试]]></title>
+    <url>%2F2019%2F05%2F11%2Fpdf%E6%B5%8B%E8%AF%95%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[FMS+OBS简单直播方案]]></title>
     <url>%2F2019%2F05%2F08%2FFMS-OBS%E7%AE%80%E5%8D%95%E7%9B%B4%E6%92%AD%E6%96%B9%E6%A1%88%2F</url>
     <content type="text"><![CDATA[软件安装1、安装FlashMediaServer （版本自选）。 安装时建议将FMS的端口设置为：1935 （取消80端口，否则可能影响IIS工作） 2、安装Open BroadCaster Software v0.64b(安装的时候会有病毒提示，切记要忽略，否则会被当成病毒给干掉。) 3、安装Adobe Flash Media Live Encoder 3 (摄像头直播) 3、安装Adobe Flash CS4（编写flash程序） 启动直播启动FMS第一步：启动服务器 这两个都启动。 第二步：启动管理器 启动之后大概是这个样子: 填写你设定的用户名和密码：进入后大概是这个样子： 第三步：建立实例： 如此便成功创建了直播频道里。 运行Adobe Flash Media Live Encoder 3将直播频道填入参数： 然后点击“start”，即开启摄像头直播了，可以通过如下方式观看： 在浏览器中间地址栏输入直播频道： 便可看到直播画面了。就不放图了~ 开启OBS软件启动后大概是这个样子： 然后设定直播推送参数： 然后点击：”开启串流”，即可在频道中看到直播桌面的画面里。]]></content>
@@ -33,8 +38,8 @@
         <category>2019年5月</category>
       </categories>
       <tags>
-        <tag>心理学</tag>
         <tag>生活</tag>
+        <tag>心理学</tag>
         <tag>行动</tag>
       </tags>
   </entry>
@@ -70,8 +75,8 @@
       </categories>
       <tags>
         <tag>随想</tag>
-        <tag>生活</tag>
         <tag>网文</tag>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -127,8 +132,8 @@
         <category>2013年3月</category>
       </categories>
       <tags>
-        <tag>深思</tag>
         <tag>生活</tag>
+        <tag>深思</tag>
         <tag>人生</tag>
       </tags>
   </entry>
