@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yourname.github.io/"/>
-  <updated>2019-05-11T08:26:54.712Z</updated>
+  <updated>2019-05-11T08:34:20.927Z</updated>
   <id>https://yourname.github.io/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="https://yourname.github.io/2019/05/11/pdf%E6%B5%8B%E8%AF%95/"/>
     <id>https://yourname.github.io/2019/05/11/pdf测试/</id>
     <published>2019-05-11T07:32:33.000Z</published>
-    <updated>2019-05-11T08:26:54.712Z</updated>
+    <updated>2019-05-11T08:34:20.927Z</updated>
     
-    <content type="html"><![CDATA[<div class="pdf" target="机器学习的数学基础.pdf" height></div>]]></content>
+    <content type="html"><![CDATA[<div class="pdf" target="1.pdf" height></div>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;div class=&quot;pdf&quot; target=&quot;机器学习的数学基础.pdf&quot; height&gt;&lt;/div&gt;
+        &lt;div class=&quot;pdf&quot; target=&quot;1.pdf&quot; height&gt;&lt;/div&gt;
       
     
     </summary>
@@ -121,9 +121,9 @@
       <category term="2019年5月" scheme="https://yourname.github.io/categories/2019%E5%B9%B45%E6%9C%88/"/>
     
     
-      <category term="生活" scheme="https://yourname.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
-    
       <category term="心理学" scheme="https://yourname.github.io/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
+    
+      <category term="生活" scheme="https://yourname.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
     
       <category term="行动" scheme="https://yourname.github.io/tags/%E8%A1%8C%E5%8A%A8/"/>
     
