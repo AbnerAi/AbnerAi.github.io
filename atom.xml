@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yourname.github.io/"/>
-  <updated>2019-05-13T08:46:55.815Z</updated>
+  <updated>2019-05-13T08:53:59.056Z</updated>
   <id>https://yourname.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://yourname.github.io/2019/05/12/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
     <id>https://yourname.github.io/2019/05/12/机器学习的数学基础/</id>
     <published>2019-05-12T05:38:01.000Z</published>
-    <updated>2019-05-13T08:46:55.815Z</updated>
+    <updated>2019-05-13T08:53:59.056Z</updated>
     
-    <content type="html"><![CDATA[<p>pdf文档：机器学习必备的数学知识.<br><a id="more"></a></p><html><br><head><meta name="generator" content="Hexo 3.8.0"><br><script type="text/javascript"><br>        window.onload=function(){         //一进该页面就加载以下方法<br>        tick();                             //显示右下角日期的方法<br>        setInterval(‘countDown()’,1000);    //一般秒设置为参数为1000<br>        }<br>            var sec = 10;                  //设置倒计时时间为30秒<br>            function countDown() {        //倒计时的方法<br>                if(sec &gt; 0) {<br>                    num.innerHTML = sec–;<br>                } else {<br>                    location = “menu.html”;  //倒计时为0进入的页面<br>                }<br>            }<br></script><br></head><br><body><br><font color="red"><h2 align="right">倒计时</h2><br><font color="red">&lt;h3 align=”right”id=”num” size=”7” face=”impact”&gt;10<br></font><br><br><br><div class="pdf" target="https://abnerai.github.io/2019/05/12/机器学习的数学基础/机器学习的数学基础.pdf" height></div><br></font></body><br></html>]]></content>
+    <content type="html"><![CDATA[<p>pdf文档：机器学习必备的数学知识.<br><a id="more"></a></p><html><br><head><meta name="generator" content="Hexo 3.8.0"><br><script type="text/javascript"><br>        window.onload=function(){         //一进该页面就加载以下方法<br>        setInterval(‘countDown()’,1000);    //一般秒设置为参数为1000<br>        }<br>            var sec = 10;                  //设置倒计时时间为30秒<br>            function countDown() {        //倒计时的方法<br>                if(sec &gt; 0) {<br>                    num.innerHTML = sec–;<br>                }<br>            }<br></script><br></head><br><body><br><font color="red">倒计时</font><br><font color="red" id="num">10</font><br><br><br><div class="pdf" target="https://abnerai.github.io/2019/05/12/机器学习的数学基础/机器学习的数学基础.pdf" height></div><br></body><br></html>]]></content>
     
     <summary type="html">
     
