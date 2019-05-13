@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yourname.github.io/"/>
-  <updated>2019-05-13T08:56:32.779Z</updated>
+  <updated>2019-05-13T09:02:20.216Z</updated>
   <id>https://yourname.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://yourname.github.io/2019/05/12/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
     <id>https://yourname.github.io/2019/05/12/机器学习的数学基础/</id>
     <published>2019-05-12T05:38:01.000Z</published>
-    <updated>2019-05-13T08:56:32.779Z</updated>
+    <updated>2019-05-13T09:02:20.216Z</updated>
     
-    <content type="html"><![CDATA[<p>pdf文档：机器学习必备的数学知识.<br><a id="more"></a></p><html><br><head><meta name="generator" content="Hexo 3.8.0"><br><script type="text/javascript"><br>window.onload=function(){         //一进该页面就加载以下方法<br>setInterval(‘countDown()’,1000);    //一般秒设置为参数为1000<br>}<br>var sec = 10;                  //设置倒计时时间为30秒<br>function countDown() {        //倒计时的方法<br>if(sec &gt; 0) {<br>num.innerHTML = sec–;<br>}<br>}<br></script><br></head><br><body><br><font color="red">倒计时</font><br><font color="red" id="num">10</font><br><br><br><div class="pdf" target="https://abnerai.github.io/2019/05/12/机器学习的数学基础/机器学习的数学基础.pdf" height></div><br></body><br></html>]]></content>
+    <content type="html"><![CDATA[<p>pdf文档：机器学习必备的数学知识.<br><a id="more"></a></p><html><br><head><meta name="generator" content="Hexo 3.8.0"><br><script type="text/javascript"><br>window.onload=function(){         //一进该页面就加载以下方法<br>alert(“1”);<br>setInterval(‘countDown()’,1000);    //一般秒设置为参数为1000<br>}<br>alert(“2”);<br>var sec = 10;                  //设置倒计时时间为30秒<br>function countDown() {        //倒计时的方法<br>if(sec &gt; 0) {<br>alert(“3”);<br>num.innerHTML = sec–;<br>}<br>}<br></script><br></head><br><body><br><font color="red">倒计时</font><br><font color="red" id="num">10</font><br><br><br><div class="pdf" target="https://abnerai.github.io/2019/05/12/机器学习的数学基础/机器学习的数学基础.pdf" height></div><br></body><br></html>]]></content>
     
     <summary type="html">
     
@@ -124,9 +124,9 @@
       <category term="2019年5月" scheme="https://yourname.github.io/categories/2019%E5%B9%B45%E6%9C%88/"/>
     
     
-      <category term="心理学" scheme="https://yourname.github.io/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
-    
       <category term="生活" scheme="https://yourname.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="心理学" scheme="https://yourname.github.io/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
     
       <category term="行动" scheme="https://yourname.github.io/tags/%E8%A1%8C%E5%8A%A8/"/>
     
