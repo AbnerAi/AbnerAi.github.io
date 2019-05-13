@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yourname.github.io/"/>
-  <updated>2019-05-13T09:02:20.216Z</updated>
+  <updated>2019-05-13T09:12:06.293Z</updated>
   <id>https://yourname.github.io/</id>
   
   <author>
@@ -17,13 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="https://yourname.github.io/2019/05/13/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/index/"/>
+    <id>https://yourname.github.io/2019/05/13/机器学习的数学基础/index/</id>
+    <published>2019-05-13T09:11:06.501Z</published>
+    <updated>2019-05-13T09:12:06.293Z</updated>
+    
+    <content type="html"><![CDATA[<html><title>hello </title><body><font color="red">abner</font></body></html>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;html&gt;
+	&lt;title&gt;hello &lt;/title&gt;
+	&lt;body&gt;&lt;font color=&quot;red&quot;&gt;abner&lt;/font&gt;&lt;/body&gt;
+&lt;/html&gt;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>机器学习的数学基础</title>
     <link href="https://yourname.github.io/2019/05/12/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
     <id>https://yourname.github.io/2019/05/12/机器学习的数学基础/</id>
     <published>2019-05-12T05:38:01.000Z</published>
-    <updated>2019-05-13T09:02:20.216Z</updated>
+    <updated>2019-05-13T09:10:55.207Z</updated>
     
-    <content type="html"><![CDATA[<p>pdf文档：机器学习必备的数学知识.<br><a id="more"></a></p><html><br><head><meta name="generator" content="Hexo 3.8.0"><br><script type="text/javascript"><br>window.onload=function(){         //一进该页面就加载以下方法<br>alert(“1”);<br>setInterval(‘countDown()’,1000);    //一般秒设置为参数为1000<br>}<br>alert(“2”);<br>var sec = 10;                  //设置倒计时时间为30秒<br>function countDown() {        //倒计时的方法<br>if(sec &gt; 0) {<br>alert(“3”);<br>num.innerHTML = sec–;<br>}<br>}<br></script><br></head><br><body><br><font color="red">倒计时</font><br><font color="red" id="num">10</font><br><br><br><div class="pdf" target="https://abnerai.github.io/2019/05/12/机器学习的数学基础/机器学习的数学基础.pdf" height></div><br></body><br></html>]]></content>
+    <content type="html"><![CDATA[<p>pdf文档：机器学习必备的数学知识.<br><a id="more"></a><br><div class="pdf" target="https://abnerai.github.io/2019/05/12/机器学习的数学基础/机器学习的数学基础.pdf" height></div></p><p><span class="exturl" data-url="aHR0cHM6Ly9hYm5lcmFpLmdpdGh1Yi5pby8yMDE5LzA1LzEyLyVFNiU5QyVCQSVFNSU5OSVBOCVFNSVBRCVBNiVFNCVCOSVBMCVFNyU5QSU4NCVFNiU5NSVCMCVFNSVBRCVBNiVFNSU5RiVCQSVFNyVBMSU4MC9pbmRleC5odG1s" title="https://abnerai.github.io/2019/05/12/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/index.html">https://abnerai.github.io/2019/05/12/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/index.html<i class="fa fa-external-link"></i></span></p>]]></content>
     
     <summary type="html">
     
