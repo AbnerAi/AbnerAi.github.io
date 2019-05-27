@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yourname.github.io/"/>
-  <updated>2019-05-20T02:30:09.741Z</updated>
+  <updated>2019-05-27T06:28:56.702Z</updated>
   <id>https://yourname.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>&lt;a href=&quot;https://abnerai.github.io/2019/05/12/机器学习的数学基础/机器学习的数学基础.pdf&quot;&gt;hexo&lt;/a&gt;</title>
+    <link href="https://yourname.github.io/2019/05/27/hexo/"/>
+    <id>https://yourname.github.io/2019/05/27/hexo/</id>
+    <published>2019-05-27T06:27:18.000Z</published>
+    <updated>2019-05-27T06:28:56.702Z</updated>
+    
+    <content type="html"><![CDATA[<p>hahah </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;hahah &lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>一场革命</title>
@@ -152,9 +174,9 @@
       <category term="2019年5月" scheme="https://yourname.github.io/categories/2019%E5%B9%B45%E6%9C%88/"/>
     
     
-      <category term="心理学" scheme="https://yourname.github.io/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
-    
       <category term="生活" scheme="https://yourname.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="心理学" scheme="https://yourname.github.io/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
     
       <category term="行动" scheme="https://yourname.github.io/tags/%E8%A1%8C%E5%8A%A8/"/>
     
@@ -406,9 +428,9 @@
       <category term="2013年3月" scheme="https://yourname.github.io/categories/2013%E5%B9%B43%E6%9C%88/"/>
     
     
-      <category term="深思" scheme="https://yourname.github.io/tags/%E6%B7%B1%E6%80%9D/"/>
-    
       <category term="生活" scheme="https://yourname.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="深思" scheme="https://yourname.github.io/tags/%E6%B7%B1%E6%80%9D/"/>
     
       <category term="人生" scheme="https://yourname.github.io/tags/%E4%BA%BA%E7%94%9F/"/>
     
