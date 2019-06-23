@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[一场革命]]></title>
-    <url>%2F2019%2F05%2F20%2F%E4%B8%80%E5%9C%BA%E9%9D%A9%E5%91%BD%2F</url>
-    <content type="text"><![CDATA[潜伏造利器，待我归来时，剑指BAT。]]></content>
-      <categories>
-        <category>2019年5月</category>
-      </categories>
-      <tags>
-        <tag>深思</tag>
-        <tag>目标</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[机器学习的数学基础]]></title>
     <url>%2F2019%2F05%2F12%2F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%2F</url>
     <content type="text"><![CDATA[pdf文档：机器学习必备的数学知识.]]></content>
@@ -71,8 +59,8 @@
         <category>2019年5月</category>
       </categories>
       <tags>
-        <tag>深思</tag>
         <tag>语录</tag>
+        <tag>深思</tag>
       </tags>
   </entry>
   <entry>
@@ -166,8 +154,8 @@
         <category>2013年3月</category>
       </categories>
       <tags>
-        <tag>深思</tag>
         <tag>生活</tag>
+        <tag>深思</tag>
         <tag>人生</tag>
       </tags>
   </entry>

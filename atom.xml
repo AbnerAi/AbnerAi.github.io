@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yourname.github.io/"/>
-  <updated>2019-05-20T02:30:09.741Z</updated>
+  <updated>2019-05-27T06:53:45.665Z</updated>
   <id>https://yourname.github.io/</id>
   
   <author>
@@ -15,34 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>一场革命</title>
-    <link href="https://yourname.github.io/2019/05/20/%E4%B8%80%E5%9C%BA%E9%9D%A9%E5%91%BD/"/>
-    <id>https://yourname.github.io/2019/05/20/一场革命/</id>
-    <published>2019-05-20T02:26:50.000Z</published>
-    <updated>2019-05-20T02:30:09.741Z</updated>
-    
-    <content type="html"><![CDATA[<p>潜伏造利器，待我归来时，剑指BAT。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;潜伏造利器，待我归来时，剑指BAT。&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="2019年5月" scheme="https://yourname.github.io/categories/2019%E5%B9%B45%E6%9C%88/"/>
-    
-    
-      <category term="深思" scheme="https://yourname.github.io/tags/%E6%B7%B1%E6%80%9D/"/>
-    
-      <category term="目标" scheme="https://yourname.github.io/tags/%E7%9B%AE%E6%A0%87/"/>
-    
-  </entry>
   
   <entry>
     <title>&lt;a href=&quot;./2019/05/12/机器学习的数学基础/机器学习的数学基础.pdf&quot; target=&quot;_blank&quot;&gt;机器学习的数学基础&lt;/a&gt;</title>
@@ -189,9 +161,9 @@
       <category term="2019年5月" scheme="https://yourname.github.io/categories/2019%E5%B9%B45%E6%9C%88/"/>
     
     
-      <category term="深思" scheme="https://yourname.github.io/tags/%E6%B7%B1%E6%80%9D/"/>
-    
       <category term="语录" scheme="https://yourname.github.io/tags/%E8%AF%AD%E5%BD%95/"/>
+    
+      <category term="深思" scheme="https://yourname.github.io/tags/%E6%B7%B1%E6%80%9D/"/>
     
   </entry>
   
@@ -410,9 +382,9 @@
       <category term="2013年3月" scheme="https://yourname.github.io/categories/2013%E5%B9%B43%E6%9C%88/"/>
     
     
-      <category term="深思" scheme="https://yourname.github.io/tags/%E6%B7%B1%E6%80%9D/"/>
-    
       <category term="生活" scheme="https://yourname.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="深思" scheme="https://yourname.github.io/tags/%E6%B7%B1%E6%80%9D/"/>
     
       <category term="人生" scheme="https://yourname.github.io/tags/%E4%BA%BA%E7%94%9F/"/>
     
