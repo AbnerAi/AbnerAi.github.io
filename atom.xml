@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yourname.github.io/"/>
-  <updated>2019-07-14T13:52:47.953Z</updated>
+  <updated>2019-07-14T14:03:31.569Z</updated>
   <id>https://yourname.github.io/</id>
   
   <author>
@@ -15,6 +15,93 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Esp8266之烧录方法与常见问题</title>
+    <link href="https://yourname.github.io/2019/07/14/Esp8266%E4%B9%8B%E7%83%A7%E5%BD%95%E6%96%B9%E6%B3%95%E4%B8%8E%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
+    <id>https://yourname.github.io/2019/07/14/Esp8266之烧录方法与常见问题/</id>
+    <published>2019-07-14T14:03:31.000Z</published>
+    <updated>2019-07-14T14:03:31.569Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Esp8266之AT指令</title>
+    <link href="https://yourname.github.io/2019/07/14/Esp8266%E4%B9%8BAT%E6%8C%87%E4%BB%A4/"/>
+    <id>https://yourname.github.io/2019/07/14/Esp8266之AT指令/</id>
+    <published>2019-07-14T14:03:13.000Z</published>
+    <updated>2019-07-14T14:03:13.816Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Esp8266之Airkiss</title>
+    <link href="https://yourname.github.io/2019/07/14/Esp8266%E4%B9%8BAirkiss/"/>
+    <id>https://yourname.github.io/2019/07/14/Esp8266之Airkiss/</id>
+    <published>2019-07-14T14:02:59.000Z</published>
+    <updated>2019-07-14T14:02:59.985Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Esp8266之WebServer</title>
+    <link href="https://yourname.github.io/2019/07/14/Esp8266%E4%B9%8BWebServer/"/>
+    <id>https://yourname.github.io/2019/07/14/Esp8266之WebServer/</id>
+    <published>2019-07-14T14:02:46.000Z</published>
+    <updated>2019-07-14T14:02:46.602Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>STM32下使用Lwip构建web服务器</title>
+    <link href="https://yourname.github.io/2019/07/14/STM32%E4%B8%8B%E4%BD%BF%E7%94%A8Lwip%E6%9E%84%E5%BB%BAweb%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>https://yourname.github.io/2019/07/14/STM32下使用Lwip构建web服务器/</id>
+    <published>2019-07-14T13:58:26.000Z</published>
+    <updated>2019-07-14T14:10:08.863Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>stm32单片机本身是裸机，不带操作系统，因此linux下的那一套方法就别想了。好在lwip给我们开发了一个webserver，我们仅仅知道怎么灵活使用lwip就可以构建一套web服务器在stm32上。<br>一 </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;序言&quot;&gt;&lt;a href=&quot;#序言&quot; class=&quot;headerlink&quot; title=&quot;序言&quot;&gt;&lt;/a&gt;序言&lt;/h1&gt;&lt;p&gt;stm32单片机本身是裸机，不带操作系统，因此linux下的那一套方法就别想了。好在lwip给我们开发了一个webserver，我们仅仅知道
+      
+    
+    </summary>
+    
+      <category term="2019年7月" scheme="https://yourname.github.io/categories/2019%E5%B9%B47%E6%9C%88/"/>
+    
+    
+      <category term="嵌入式" scheme="https://yourname.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+      <category term="STM32" scheme="https://yourname.github.io/tags/STM32/"/>
+    
+      <category term="lwip" scheme="https://yourname.github.io/tags/lwip/"/>
+    
+      <category term="Web服务器" scheme="https://yourname.github.io/tags/Web%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>Adversarial Robustness - Theory and Practice</title>
