@@ -121,7 +121,7 @@
 <meta property="og:site_name" content="Abner">
 <meta property="og:description" content="第一章第二章第三章1.无目标攻击1.1 fgsm  -&amp;gt;return epsilon * delta.grad.detach().sign()1.2 pgd  -&amp;gt;delta.data = (delta + X.shape[0]*alpha*delta.grad.data).clamp(-epsilon,epsilon)1.2.1 pgd_linf  -&amp;gt; delta.data">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-14T09:40:43.326Z">
+<meta property="og:updated_time" content="2019-07-14T09:47:38.693Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Adversarial Robustness - Theory and Practice">
 <meta name="twitter:description" content="第一章第二章第三章1.无目标攻击1.1 fgsm  -&amp;gt;return epsilon * delta.grad.detach().sign()1.2 pgd  -&amp;gt;delta.data = (delta + X.shape[0]*alpha*delta.grad.data).clamp(-epsilon,epsilon)1.2.1 pgd_linf  -&amp;gt; delta.data">
@@ -438,7 +438,7 @@
                 
               
 
-              <time title="创建时间：2019-07-14 17:34:55 / 修改时间：17:40:43" itemprop="dateCreated datePublished" datetime="2019-07-14T17:34:55+08:00">2019-07-14</time>
+              <time title="创建时间：2019-07-14 17:34:55 / 修改时间：17:47:38" itemprop="dateCreated datePublished" datetime="2019-07-14T17:34:55+08:00">2019-07-14</time>
             
 
             
@@ -533,7 +533,7 @@
         <h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1><h2 id="1-无目标攻击"><a href="#1-无目标攻击" class="headerlink" title="1.无目标攻击"></a>1.无目标攻击</h2><p>1.1 fgsm  -&gt;<code>return epsilon * delta.grad.detach().sign()</code><br>1.2 pgd  -&gt;<code>delta.data = (delta + X.shape[0]*alpha*delta.grad.data).clamp(-epsilon,epsilon)</code><br>1.2.1 pgd_linf  -&gt; <code>delta.data = (delta + alpha*delta.grad.detach().sign()).clamp(-epsilon,epsilon)</code><br>1.2.2 pgd_linf_rand  -&gt;   <code>delta.data = delta.data * 2 * epsilon - epsilon</code></p>
 <h2 id="2-目标攻击"><a href="#2-目标攻击" class="headerlink" title="2.目标攻击"></a>2.目标攻击</h2><p>2.1 pgd_linf_targ  -&gt;  <code>loss = (yp[:,y_targ] - yp.gather(1,y[:,None])[:,0]).sum()</code><br>2.2 pgd_linf_targ2  -&gt;  <code>loss = 2*yp[:,y_targ].sum() - yp.sum()</code><br>2.3 pgd_l2  -&gt; <code>return Z.view(Z.shape[0], -1).norm(dim=1)[:,None,None,None]</code><br>-&gt;<code>delta.data += alpha*delta.grad.detach() / norms(delta.grad.detach())
    delta.data = torch.min(torch.max(delta.detach(), -X), 1-X) # clip X+delta to [0,1]
-   delta.data *= epsilon / norms(delta.detach()).clamp(min=epsilon)</code></p>
+   delta.data *= epsilon / norms(delta.detach()).clamp(min=epsilon)</code><br><a id="more"></a>               </p>
 <h2 id="3"><a href="#3" class="headerlink" title="3.???"></a>3.???</h2><p>3.1 def bound_propagation(model, initial_bound):<br>    l, u = initial_bound<br>    bounds = []</p>
 <pre><code>for layer in model:
     if isinstance(layer, Flatten):
