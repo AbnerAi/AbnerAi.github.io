@@ -389,6 +389,297 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yourname.github.io/2019/07/14/Adversarial-Robustness-Theory-and-Practice/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Abner">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/Avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Abner">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/14/Adversarial-Robustness-Theory-and-Practice/" class="post-title-link" itemprop="url">Adversarial Robustness - Theory and Practice</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-14 17:34:55 / 修改时间：17:40:43" itemprop="dateCreated datePublished" datetime="2019-07-14T17:34:55+08:00">2019-07-14</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/2019年7月/" itemprop="url" rel="index"><span itemprop="name">2019年7月</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">5.5k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">5 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1><h2 id="1-无目标攻击"><a href="#1-无目标攻击" class="headerlink" title="1.无目标攻击"></a>1.无目标攻击</h2><p>1.1 fgsm  -&gt;<code>return epsilon * delta.grad.detach().sign()</code><br>1.2 pgd  -&gt;<code>delta.data = (delta + X.shape[0]*alpha*delta.grad.data).clamp(-epsilon,epsilon)</code><br>1.2.1 pgd_linf  -&gt; <code>delta.data = (delta + alpha*delta.grad.detach().sign()).clamp(-epsilon,epsilon)</code><br>1.2.2 pgd_linf_rand  -&gt;   <code>delta.data = delta.data * 2 * epsilon - epsilon</code></p>
+<h2 id="2-目标攻击"><a href="#2-目标攻击" class="headerlink" title="2.目标攻击"></a>2.目标攻击</h2><p>2.1 pgd_linf_targ  -&gt;  <code>loss = (yp[:,y_targ] - yp.gather(1,y[:,None])[:,0]).sum()</code><br>2.2 pgd_linf_targ2  -&gt;  <code>loss = 2*yp[:,y_targ].sum() - yp.sum()</code><br>2.3 pgd_l2  -&gt; <code>return Z.view(Z.shape[0], -1).norm(dim=1)[:,None,None,None]</code><br>-&gt;<code>delta.data += alpha*delta.grad.detach() / norms(delta.grad.detach())
+   delta.data = torch.min(torch.max(delta.detach(), -X), 1-X) # clip X+delta to [0,1]
+   delta.data *= epsilon / norms(delta.detach()).clamp(min=epsilon)</code></p>
+<h2 id="3"><a href="#3" class="headerlink" title="3.???"></a>3.???</h2><p>3.1 def bound_propagation(model, initial_bound):<br>    l, u = initial_bound<br>    bounds = []</p>
+<pre><code>for layer in model:
+    if isinstance(layer, Flatten):
+        l_ = Flatten()(l)
+        u_ = Flatten()(u)
+    elif isinstance(layer, nn.Linear):
+        l_ = (layer.weight.clamp(min=0) @ l.t() + layer.weight.clamp(max=0) @ u.t() 
+              + layer.bias[:,None]).t()
+        u_ = (layer.weight.clamp(min=0) @ u.t() + layer.weight.clamp(max=0) @ l.t() 
+              + layer.bias[:,None]).t()
+    elif isinstance(layer, nn.Conv2d):
+        l_ = (nn.functional.conv2d(l, layer.weight.clamp(min=0), bias=None, 
+                                   stride=layer.stride, padding=layer.padding,
+                                   dilation=layer.dilation, groups=layer.groups) +
+              nn.functional.conv2d(u, layer.weight.clamp(max=0), bias=None, 
+                                   stride=layer.stride, padding=layer.padding,
+                                   dilation=layer.dilation, groups=layer.groups) +
+              layer.bias[None,:,None,None])
+
+        u_ = (nn.functional.conv2d(u, layer.weight.clamp(min=0), bias=None, 
+                                   stride=layer.stride, padding=layer.padding,
+                                   dilation=layer.dilation, groups=layer.groups) +
+              nn.functional.conv2d(l, layer.weight.clamp(max=0), bias=None, 
+                                   stride=layer.stride, padding=layer.padding,
+                                   dilation=layer.dilation, groups=layer.groups) + 
+              layer.bias[None,:,None,None])
+
+    elif isinstance(layer, nn.ReLU):
+        l_ = l.clamp(min=0)
+        u_ = u.clamp(min=0)
+
+    bounds.append((l_, u_))
+    l,u = l_, u_
+return bounds
+</code></pre><p>3.2 def form_milp(model, c, initial_bounds, bounds):<br>    linear_layers = [(layer, bound) for layer, bound in zip(model,bounds) if isinstance(layer, nn.Linear)]<br>    d = len(linear_layers)-1</p>
+<pre><code># create cvxpy variables
+z = ([cp.Variable(layer.in_features) for layer, _ in linear_layers] + 
+     [cp.Variable(linear_layers[-1][0].out_features)])
+v = [cp.Variable(layer.out_features, boolean=True) for layer, _ in linear_layers[:-1]]
+
+# extract relevant matrices
+W = [layer.weight.detach().cpu().numpy() for layer,_ in linear_layers]
+b = [layer.bias.detach().cpu().numpy() for layer,_ in linear_layers]
+l = [l[0].detach().cpu().numpy() for _, (l,_) in linear_layers]
+u = [u[0].detach().cpu().numpy() for _, (_,u) in linear_layers]
+l0 = initial_bound[0][0].view(-1).detach().cpu().numpy()
+u0 = initial_bound[1][0].view(-1).detach().cpu().numpy()
+
+# add ReLU constraints
+constraints = []
+for i in range(len(linear_layers)-1):
+    constraints += [z[i+1] &gt;= W[i] @ z[i] + b[i], 
+                    z[i+1] &gt;= 0,
+                    cp.multiply(v[i], u[i]) &gt;= z[i+1],
+                    W[i] @ z[i] + b[i] &gt;= z[i+1] + cp.multiply((1-v[i]), l[i])]
+
+# final linear constraint
+constraints += [z[d+1] == W[d] @ z[d] + b[d]]
+
+# initial bound constraints
+constraints += [z[0] &gt;= l0, z[0] &lt;= u0]
+
+return cp.Problem(cp.Minimize(c @ z[d+1]), constraints), (z, v)
+</code></pre><p>3.3    def form_lp(model, c, initial_bounds, bounds):<br>    linear_layers = [(layer, bound) for layer, bound in zip(model,bounds) if isinstance(layer, nn.Linear)]<br>    d = len(linear_layers)-1</p>
+<pre><code># create cvxpy variables
+z = ([cp.Variable(layer.in_features) for layer, _ in linear_layers] + 
+     [cp.Variable(linear_layers[-1][0].out_features)])
+v = [cp.Variable(layer.out_features) for layer, _ in linear_layers[:-1]]
+
+# extract relevant matrices
+W = [layer.weight.detach().cpu().numpy() for layer,_ in linear_layers]
+b = [layer.bias.detach().cpu().numpy() for layer,_ in linear_layers]
+l = [l[0].detach().cpu().numpy() for _, (l,_) in linear_layers]
+u = [u[0].detach().cpu().numpy() for _, (_,u) in linear_layers]
+l0 = initial_bound[0][0].view(-1).detach().cpu().numpy()
+u0 = initial_bound[1][0].view(-1).detach().cpu().numpy()
+
+# add ReLU constraints
+constraints = []
+for i in range(len(linear_layers)-1):
+    constraints += [z[i+1] &gt;= W[i] @ z[i] + b[i], 
+                    z[i+1] &gt;= 0,
+                    cp.multiply(v[i], u[i]) &gt;= z[i+1],
+                    W[i] @ z[i] + b[i] &gt;= z[i+1] + cp.multiply((1-v[i]), l[i]),
+                    v[i] &gt;= 0,
+                    v[i] &lt;= 1]
+
+# final linear constraint
+constraints += [z[d+1] == W[d] @ z[d] + b[d]]
+
+# initial bound constraints
+constraints += [z[0] &gt;= l0, z[0] &lt;= u0]
+
+return cp.Problem(cp.Minimize(c @ z[d+1]), constraints), (z, v)
+</code></pre><p>3.4<br><code>def interval_based_bound(model, c, bounds):
+cW = c.t() @ model[-1].weight
+cb = c.t() @ model[-1].bias
+l,u = bounds[-2]
+return (cW.clamp(min=0) @ l.t() + cW.clamp(max=0) @ u.t() + cb[:,None]).t()</code></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://yourname.github.io/2019/05/12/机器学习的数学基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2256,219 +2547,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yourname.github.io/2019/05/07/opencv2-0-交叉编译/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Abner">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/Avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Abner">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/07/opencv2-0-交叉编译/" class="post-title-link" itemprop="url">opencv2.0 交叉编译</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-07 21:07:35" itemprop="dateCreated datePublished" datetime="2019-05-07T21:07:35+08:00">2019-05-07</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-05-09 13:17:24" itemprop="dateModified" datetime="2019-05-09T13:17:24+08:00">2019-05-09</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/2019年5月/" itemprop="url" rel="index"><span itemprop="name">2019年5月</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">4.1k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">4 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="编译环境"><a href="#编译环境" class="headerlink" title="编译环境"></a>编译环境</h1><ul>
-<li>编译：ubuntu16.04x86</li>
-<li>目标机：cortex-a8 linux3.0</li>
-<li>编译器：arm-linux-gcc</li>
-</ul>
-<blockquote>
-<p>由于做项目的要求，我们需要将opencv移植到arm体系的开发板上，经过我的测试，在开发板：cortex-a8等都可以运行正常的。<br></p></blockquote>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/05/07/opencv2-0-交叉编译/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2517,7 +2595,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2540,7 +2618,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2603,7 +2683,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">23</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2714,7 +2800,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">15k</span>
+    <span title="站点总字数">20k</span>
   
 
   
@@ -2725,7 +2811,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">13 分钟</span>
+    <span title="站点阅读时长">18 分钟</span>
   
 </div>
  <!--

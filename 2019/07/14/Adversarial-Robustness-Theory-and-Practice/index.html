@@ -113,17 +113,19 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Abner">
-<meta property="og:url" content="https://yourname.github.io/tags/index.html">
+  <meta name="description" content="第一章第二章第三章1.无目标攻击1.1 fgsm  -&amp;gt;return epsilon * delta.grad.detach().sign()1.2 pgd  -&amp;gt;delta.data = (delta + X.shape[0]*alpha*delta.grad.data).clamp(-epsilon,epsilon)1.2.1 pgd_linf  -&amp;gt; delta.data">
+<meta name="keywords" content="对抗攻击,对抗训练,鲁棒性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Adversarial Robustness - Theory and Practice">
+<meta property="og:url" content="https://yourname.github.io/2019/07/14/Adversarial-Robustness-Theory-and-Practice/index.html">
 <meta property="og:site_name" content="Abner">
+<meta property="og:description" content="第一章第二章第三章1.无目标攻击1.1 fgsm  -&amp;gt;return epsilon * delta.grad.detach().sign()1.2 pgd  -&amp;gt;delta.data = (delta + X.shape[0]*alpha*delta.grad.data).clamp(-epsilon,epsilon)1.2.1 pgd_linf  -&amp;gt; delta.data">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-09T08:30:11.145Z">
+<meta property="og:updated_time" content="2019-07-14T09:40:43.326Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Abner">
+<meta name="twitter:title" content="Adversarial Robustness - Theory and Practice">
+<meta name="twitter:description" content="第一章第二章第三章1.无目标攻击1.1 fgsm  -&amp;gt;return epsilon * delta.grad.detach().sign()1.2 pgd  -&amp;gt;delta.data = (delta + X.shape[0]*alpha*delta.grad.data).clamp(-epsilon,epsilon)1.2.1 pgd_linf  -&amp;gt; delta.data">
 
-
-  
 
 
   <link rel="alternate" href="/atom.xml" title="Abner" type="application/atom+xml">
@@ -132,7 +134,7 @@
 
   
   
-  <link rel="canonical" href="https://yourname.github.io/tags/">
+  <link rel="canonical" href="https://yourname.github.io/2019/07/14/Adversarial-Robustness-Theory-and-Practice/">
 
 
 
@@ -142,7 +144,7 @@
   };
 </script>
 
-  <title>标签 | Abner</title>
+  <title>Adversarial Robustness - Theory and Practice | Abner</title>
   
 
 
@@ -266,7 +268,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -330,28 +332,6 @@
   
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
   
 
   
@@ -399,160 +379,357 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yourname.github.io/2019/07/14/Adversarial-Robustness-Theory-and-Practice/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Abner">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/Avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Abner">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h2 class="post-title" itemprop="name headline">
-
-</h2>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
+          <h2 class="post-title" itemprop="name headline">Adversarial Robustness - Theory and Practice
+
               
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
               
-                
-                  
-                
+                <span class="post-meta-item-text">发表于</span>
               
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
+
               
                 
-                  
+              
+
+              <time title="创建时间：2019-07-14 17:34:55 / 修改时间：17:40:43" itemprop="dateCreated datePublished" datetime="2019-07-14T17:34:55+08:00">2019-07-14</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/2019年7月/" itemprop="url" rel="index"><span itemprop="name">2019年7月</span></a></span>
+
+                
                 
               
-                
-                  
-                
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
               
-                
-                  
-                
+
               
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
                 
-                  
+                  <span class="post-meta-item-text">本文字数：</span>
                 
+                <span title="本文字数">5.5k</span>
               
-                
-                  
-                
+
               
-                
-                  
-                
+                <span class="post-meta-divider">|</span>
               
-                
-                  
-                
+
               
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
                 
-                  
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-              目前共计 26 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              
-                <a href="/tags/FMS/" style="font-size: 12px; color: #ccc">FMS</a> <a href="/tags/OBS/" style="font-size: 12px; color: #ccc">OBS</a> <a href="/tags/opencv/" style="font-size: 21px; color: #6f6f6f">opencv</a> <a href="/tags/pdf/" style="font-size: 12px; color: #ccc">pdf</a> <a href="/tags/交叉编译/" style="font-size: 12px; color: #ccc">交叉编译</a> <a href="/tags/人生/" style="font-size: 12px; color: #ccc">人生</a> <a href="/tags/全日制/" style="font-size: 12px; color: #ccc">全日制</a> <a href="/tags/对抗攻击/" style="font-size: 12px; color: #ccc">对抗攻击</a> <a href="/tags/对抗训练/" style="font-size: 12px; color: #ccc">对抗训练</a> <a href="/tags/心理学/" style="font-size: 21px; color: #6f6f6f">心理学</a> <a href="/tags/数学/" style="font-size: 12px; color: #ccc">数学</a> <a href="/tags/机器学习/" style="font-size: 12px; color: #ccc">机器学习</a> <a href="/tags/深思/" style="font-size: 21px; color: #6f6f6f">深思</a> <a href="/tags/生活/" style="font-size: 30px; color: #111">生活</a> <a href="/tags/直播/" style="font-size: 12px; color: #ccc">直播</a> <a href="/tags/研究生/" style="font-size: 12px; color: #ccc">研究生</a> <a href="/tags/硕士/" style="font-size: 12px; color: #ccc">硕士</a> <a href="/tags/编程思想/" style="font-size: 12px; color: #ccc">编程思想</a> <a href="/tags/网文/" style="font-size: 12px; color: #ccc">网文</a> <a href="/tags/行动/" style="font-size: 12px; color: #ccc">行动</a> <a href="/tags/诗词/" style="font-size: 12px; color: #ccc">诗词</a> <a href="/tags/语录/" style="font-size: 12px; color: #ccc">语录</a> <a href="/tags/递归/" style="font-size: 12px; color: #ccc">递归</a> <a href="/tags/随想/" style="font-size: 21px; color: #6f6f6f">随想</a> <a href="/tags/非全日制/" style="font-size: 12px; color: #ccc">非全日制</a> <a href="/tags/鲁棒性/" style="font-size: 12px; color: #ccc">鲁棒性</a>
+                <span title="阅读时长">5 分钟</span>
               
             </div>
-          </div>
-        
-      </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1><h2 id="1-无目标攻击"><a href="#1-无目标攻击" class="headerlink" title="1.无目标攻击"></a>1.无目标攻击</h2><p>1.1 fgsm  -&gt;<code>return epsilon * delta.grad.detach().sign()</code><br>1.2 pgd  -&gt;<code>delta.data = (delta + X.shape[0]*alpha*delta.grad.data).clamp(-epsilon,epsilon)</code><br>1.2.1 pgd_linf  -&gt; <code>delta.data = (delta + alpha*delta.grad.detach().sign()).clamp(-epsilon,epsilon)</code><br>1.2.2 pgd_linf_rand  -&gt;   <code>delta.data = delta.data * 2 * epsilon - epsilon</code></p>
+<h2 id="2-目标攻击"><a href="#2-目标攻击" class="headerlink" title="2.目标攻击"></a>2.目标攻击</h2><p>2.1 pgd_linf_targ  -&gt;  <code>loss = (yp[:,y_targ] - yp.gather(1,y[:,None])[:,0]).sum()</code><br>2.2 pgd_linf_targ2  -&gt;  <code>loss = 2*yp[:,y_targ].sum() - yp.sum()</code><br>2.3 pgd_l2  -&gt; <code>return Z.view(Z.shape[0], -1).norm(dim=1)[:,None,None,None]</code><br>-&gt;<code>delta.data += alpha*delta.grad.detach() / norms(delta.grad.detach())
+   delta.data = torch.min(torch.max(delta.detach(), -X), 1-X) # clip X+delta to [0,1]
+   delta.data *= epsilon / norms(delta.detach()).clamp(min=epsilon)</code></p>
+<h2 id="3"><a href="#3" class="headerlink" title="3.???"></a>3.???</h2><p>3.1 def bound_propagation(model, initial_bound):<br>    l, u = initial_bound<br>    bounds = []</p>
+<pre><code>for layer in model:
+    if isinstance(layer, Flatten):
+        l_ = Flatten()(l)
+        u_ = Flatten()(u)
+    elif isinstance(layer, nn.Linear):
+        l_ = (layer.weight.clamp(min=0) @ l.t() + layer.weight.clamp(max=0) @ u.t() 
+              + layer.bias[:,None]).t()
+        u_ = (layer.weight.clamp(min=0) @ u.t() + layer.weight.clamp(max=0) @ l.t() 
+              + layer.bias[:,None]).t()
+    elif isinstance(layer, nn.Conv2d):
+        l_ = (nn.functional.conv2d(l, layer.weight.clamp(min=0), bias=None, 
+                                   stride=layer.stride, padding=layer.padding,
+                                   dilation=layer.dilation, groups=layer.groups) +
+              nn.functional.conv2d(u, layer.weight.clamp(max=0), bias=None, 
+                                   stride=layer.stride, padding=layer.padding,
+                                   dilation=layer.dilation, groups=layer.groups) +
+              layer.bias[None,:,None,None])
+
+        u_ = (nn.functional.conv2d(u, layer.weight.clamp(min=0), bias=None, 
+                                   stride=layer.stride, padding=layer.padding,
+                                   dilation=layer.dilation, groups=layer.groups) +
+              nn.functional.conv2d(l, layer.weight.clamp(max=0), bias=None, 
+                                   stride=layer.stride, padding=layer.padding,
+                                   dilation=layer.dilation, groups=layer.groups) + 
+              layer.bias[None,:,None,None])
+
+    elif isinstance(layer, nn.ReLU):
+        l_ = l.clamp(min=0)
+        u_ = u.clamp(min=0)
+
+    bounds.append((l_, u_))
+    l,u = l_, u_
+return bounds
+</code></pre><p>3.2 def form_milp(model, c, initial_bounds, bounds):<br>    linear_layers = [(layer, bound) for layer, bound in zip(model,bounds) if isinstance(layer, nn.Linear)]<br>    d = len(linear_layers)-1</p>
+<pre><code># create cvxpy variables
+z = ([cp.Variable(layer.in_features) for layer, _ in linear_layers] + 
+     [cp.Variable(linear_layers[-1][0].out_features)])
+v = [cp.Variable(layer.out_features, boolean=True) for layer, _ in linear_layers[:-1]]
+
+# extract relevant matrices
+W = [layer.weight.detach().cpu().numpy() for layer,_ in linear_layers]
+b = [layer.bias.detach().cpu().numpy() for layer,_ in linear_layers]
+l = [l[0].detach().cpu().numpy() for _, (l,_) in linear_layers]
+u = [u[0].detach().cpu().numpy() for _, (_,u) in linear_layers]
+l0 = initial_bound[0][0].view(-1).detach().cpu().numpy()
+u0 = initial_bound[1][0].view(-1).detach().cpu().numpy()
+
+# add ReLU constraints
+constraints = []
+for i in range(len(linear_layers)-1):
+    constraints += [z[i+1] &gt;= W[i] @ z[i] + b[i], 
+                    z[i+1] &gt;= 0,
+                    cp.multiply(v[i], u[i]) &gt;= z[i+1],
+                    W[i] @ z[i] + b[i] &gt;= z[i+1] + cp.multiply((1-v[i]), l[i])]
+
+# final linear constraint
+constraints += [z[d+1] == W[d] @ z[d] + b[d]]
+
+# initial bound constraints
+constraints += [z[0] &gt;= l0, z[0] &lt;= u0]
+
+return cp.Problem(cp.Minimize(c @ z[d+1]), constraints), (z, v)
+</code></pre><p>3.3    def form_lp(model, c, initial_bounds, bounds):<br>    linear_layers = [(layer, bound) for layer, bound in zip(model,bounds) if isinstance(layer, nn.Linear)]<br>    d = len(linear_layers)-1</p>
+<pre><code># create cvxpy variables
+z = ([cp.Variable(layer.in_features) for layer, _ in linear_layers] + 
+     [cp.Variable(linear_layers[-1][0].out_features)])
+v = [cp.Variable(layer.out_features) for layer, _ in linear_layers[:-1]]
+
+# extract relevant matrices
+W = [layer.weight.detach().cpu().numpy() for layer,_ in linear_layers]
+b = [layer.bias.detach().cpu().numpy() for layer,_ in linear_layers]
+l = [l[0].detach().cpu().numpy() for _, (l,_) in linear_layers]
+u = [u[0].detach().cpu().numpy() for _, (_,u) in linear_layers]
+l0 = initial_bound[0][0].view(-1).detach().cpu().numpy()
+u0 = initial_bound[1][0].view(-1).detach().cpu().numpy()
+
+# add ReLU constraints
+constraints = []
+for i in range(len(linear_layers)-1):
+    constraints += [z[i+1] &gt;= W[i] @ z[i] + b[i], 
+                    z[i+1] &gt;= 0,
+                    cp.multiply(v[i], u[i]) &gt;= z[i+1],
+                    W[i] @ z[i] + b[i] &gt;= z[i+1] + cp.multiply((1-v[i]), l[i]),
+                    v[i] &gt;= 0,
+                    v[i] &lt;= 1]
+
+# final linear constraint
+constraints += [z[d+1] == W[d] @ z[d] + b[d]]
+
+# initial bound constraints
+constraints += [z[0] &gt;= l0, z[0] &lt;= u0]
+
+return cp.Problem(cp.Minimize(c @ z[d+1]), constraints), (z, v)
+</code></pre><p>3.4<br><code>def interval_based_bound(model, c, bounds):
+cW = c.t() @ model[-1].weight
+cb = c.t() @ model[-1].bias
+l,u = bounds[-2]
+return (cW.clamp(min=0) @ l.t() + cW.clamp(max=0) @ u.t() + cb[:,None]).t()</code></p>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="Abner 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="Abner 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/对抗攻击/" rel="tag"><i class="fa fa-tag"></i> 对抗攻击</a>
+          
+            <a href="/tags/对抗训练/" rel="tag"><i class="fa fa-tag"></i> 对抗训练</a>
+          
+            <a href="/tags/鲁棒性/" rel="tag"><i class="fa fa-tag"></i> 鲁棒性</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a 12 2019 href="/2019/05/12/机器学习的数学基础/" rel="next" title="<a href=" . 05 机器学习的数学基础 机器学习的数学基础.pdf" target="_blank">机器学习的数学基础</a>">
+                <i class="fa fa-chevron-left"></i> <a href="./2019/05/12/机器学习的数学基础/机器学习的数学基础.pdf" target="_blank">机器学习的数学基础</a>
+              
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
@@ -585,8 +762,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -779,6 +965,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章"><span class="nav-number">1.</span> <span class="nav-text">第一章</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章"><span class="nav-number">2.</span> <span class="nav-text">第二章</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章"><span class="nav-number">3.</span> <span class="nav-text">第三章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-无目标攻击"><span class="nav-number">3.1.</span> <span class="nav-text">1.无目标攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-目标攻击"><span class="nav-number">3.2.</span> <span class="nav-text">2.目标攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3"><span class="nav-number">3.3.</span> <span class="nav-text">3.???</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
