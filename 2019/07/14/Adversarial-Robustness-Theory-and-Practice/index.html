@@ -113,18 +113,18 @@
 
 
 
-  <meta name="description" content="第一章第二章第三章1.无目标攻击1.1 fgsm  -&amp;gt;return epsilon * delta.grad.detach().sign()1.2 pgd  -&amp;gt;delta.data = (delta + X.shape[0]*alpha*delta.grad.data).clamp(-epsilon,epsilon)1.2.1 pgd_linf  -&amp;gt; delta.data">
-<meta name="keywords" content="对抗攻击,对抗训练,鲁棒性">
+  <meta name="description" content="第一章 - Introduction to adversarial robustness我运行Adversarial Robustness-Theory and Practice.introduction代码，加载resnet50，看到在注入噪音后，pig图像被算法误认为是airliner。 第二章 - linear models（1）    加载MINIST数据集 （2）    对数据进行常规训">
+<meta name="keywords" content="对抗攻击,对抗训练,鲁棒性,交大科研">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Adversarial Robustness - Theory and Practice">
 <meta property="og:url" content="https://yourname.github.io/2019/07/14/Adversarial-Robustness-Theory-and-Practice/index.html">
 <meta property="og:site_name" content="Abner">
-<meta property="og:description" content="第一章第二章第三章1.无目标攻击1.1 fgsm  -&amp;gt;return epsilon * delta.grad.detach().sign()1.2 pgd  -&amp;gt;delta.data = (delta + X.shape[0]*alpha*delta.grad.data).clamp(-epsilon,epsilon)1.2.1 pgd_linf  -&amp;gt; delta.data">
+<meta property="og:description" content="第一章 - Introduction to adversarial robustness我运行Adversarial Robustness-Theory and Practice.introduction代码，加载resnet50，看到在注入噪音后，pig图像被算法误认为是airliner。 第二章 - linear models（1）    加载MINIST数据集 （2）    对数据进行常规训">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-14T09:47:38.693Z">
+<meta property="og:updated_time" content="2019-07-14T13:49:12.221Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Adversarial Robustness - Theory and Practice">
-<meta name="twitter:description" content="第一章第二章第三章1.无目标攻击1.1 fgsm  -&amp;gt;return epsilon * delta.grad.detach().sign()1.2 pgd  -&amp;gt;delta.data = (delta + X.shape[0]*alpha*delta.grad.data).clamp(-epsilon,epsilon)1.2.1 pgd_linf  -&amp;gt; delta.data">
+<meta name="twitter:description" content="第一章 - Introduction to adversarial robustness我运行Adversarial Robustness-Theory and Practice.introduction代码，加载resnet50，看到在注入噪音后，pig图像被算法误认为是airliner。 第二章 - linear models（1）    加载MINIST数据集 （2）    对数据进行常规训">
 
 
 
@@ -438,7 +438,7 @@
                 
               
 
-              <time title="创建时间：2019-07-14 17:34:55 / 修改时间：17:47:38" itemprop="dateCreated datePublished" datetime="2019-07-14T17:34:55+08:00">2019-07-14</time>
+              <time title="创建时间：2019-07-14 17:34:55 / 修改时间：21:49:12" itemprop="dateCreated datePublished" datetime="2019-07-14T17:34:55+08:00">2019-07-14</time>
             
 
             
@@ -496,7 +496,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">5.5k</span>
+                <span title="本文字数">1.5k</span>
               
 
               
@@ -510,7 +510,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">5 分钟</span>
+                <span title="阅读时长">1 分钟</span>
               
             </div>
           
@@ -530,109 +530,12 @@
       
 
       
-        <h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1><h2 id="1-无目标攻击"><a href="#1-无目标攻击" class="headerlink" title="1.无目标攻击"></a>1.无目标攻击</h2><p>1.1 fgsm  -&gt;<code>return epsilon * delta.grad.detach().sign()</code><br>1.2 pgd  -&gt;<code>delta.data = (delta + X.shape[0]*alpha*delta.grad.data).clamp(-epsilon,epsilon)</code><br>1.2.1 pgd_linf  -&gt; <code>delta.data = (delta + alpha*delta.grad.detach().sign()).clamp(-epsilon,epsilon)</code><br>1.2.2 pgd_linf_rand  -&gt;   <code>delta.data = delta.data * 2 * epsilon - epsilon</code></p>
-<h2 id="2-目标攻击"><a href="#2-目标攻击" class="headerlink" title="2.目标攻击"></a>2.目标攻击</h2><p>2.1 pgd_linf_targ  -&gt;  <code>loss = (yp[:,y_targ] - yp.gather(1,y[:,None])[:,0]).sum()</code><br>2.2 pgd_linf_targ2  -&gt;  <code>loss = 2*yp[:,y_targ].sum() - yp.sum()</code><br>2.3 pgd_l2  -&gt; <code>return Z.view(Z.shape[0], -1).norm(dim=1)[:,None,None,None]</code><br>-&gt;<code>delta.data += alpha*delta.grad.detach() / norms(delta.grad.detach())
-   delta.data = torch.min(torch.max(delta.detach(), -X), 1-X) # clip X+delta to [0,1]
-   delta.data *= epsilon / norms(delta.detach()).clamp(min=epsilon)</code><br><a id="more"></a>               </p>
-<h2 id="3"><a href="#3" class="headerlink" title="3.???"></a>3.???</h2><p>3.1 def bound_propagation(model, initial_bound):<br>    l, u = initial_bound<br>    bounds = []</p>
-<pre><code>for layer in model:
-    if isinstance(layer, Flatten):
-        l_ = Flatten()(l)
-        u_ = Flatten()(u)
-    elif isinstance(layer, nn.Linear):
-        l_ = (layer.weight.clamp(min=0) @ l.t() + layer.weight.clamp(max=0) @ u.t() 
-              + layer.bias[:,None]).t()
-        u_ = (layer.weight.clamp(min=0) @ u.t() + layer.weight.clamp(max=0) @ l.t() 
-              + layer.bias[:,None]).t()
-    elif isinstance(layer, nn.Conv2d):
-        l_ = (nn.functional.conv2d(l, layer.weight.clamp(min=0), bias=None, 
-                                   stride=layer.stride, padding=layer.padding,
-                                   dilation=layer.dilation, groups=layer.groups) +
-              nn.functional.conv2d(u, layer.weight.clamp(max=0), bias=None, 
-                                   stride=layer.stride, padding=layer.padding,
-                                   dilation=layer.dilation, groups=layer.groups) +
-              layer.bias[None,:,None,None])
-
-        u_ = (nn.functional.conv2d(u, layer.weight.clamp(min=0), bias=None, 
-                                   stride=layer.stride, padding=layer.padding,
-                                   dilation=layer.dilation, groups=layer.groups) +
-              nn.functional.conv2d(l, layer.weight.clamp(max=0), bias=None, 
-                                   stride=layer.stride, padding=layer.padding,
-                                   dilation=layer.dilation, groups=layer.groups) + 
-              layer.bias[None,:,None,None])
-
-    elif isinstance(layer, nn.ReLU):
-        l_ = l.clamp(min=0)
-        u_ = u.clamp(min=0)
-
-    bounds.append((l_, u_))
-    l,u = l_, u_
-return bounds
-</code></pre><p>3.2 def form_milp(model, c, initial_bounds, bounds):<br>    linear_layers = [(layer, bound) for layer, bound in zip(model,bounds) if isinstance(layer, nn.Linear)]<br>    d = len(linear_layers)-1</p>
-<pre><code># create cvxpy variables
-z = ([cp.Variable(layer.in_features) for layer, _ in linear_layers] + 
-     [cp.Variable(linear_layers[-1][0].out_features)])
-v = [cp.Variable(layer.out_features, boolean=True) for layer, _ in linear_layers[:-1]]
-
-# extract relevant matrices
-W = [layer.weight.detach().cpu().numpy() for layer,_ in linear_layers]
-b = [layer.bias.detach().cpu().numpy() for layer,_ in linear_layers]
-l = [l[0].detach().cpu().numpy() for _, (l,_) in linear_layers]
-u = [u[0].detach().cpu().numpy() for _, (_,u) in linear_layers]
-l0 = initial_bound[0][0].view(-1).detach().cpu().numpy()
-u0 = initial_bound[1][0].view(-1).detach().cpu().numpy()
-
-# add ReLU constraints
-constraints = []
-for i in range(len(linear_layers)-1):
-    constraints += [z[i+1] &gt;= W[i] @ z[i] + b[i], 
-                    z[i+1] &gt;= 0,
-                    cp.multiply(v[i], u[i]) &gt;= z[i+1],
-                    W[i] @ z[i] + b[i] &gt;= z[i+1] + cp.multiply((1-v[i]), l[i])]
-
-# final linear constraint
-constraints += [z[d+1] == W[d] @ z[d] + b[d]]
-
-# initial bound constraints
-constraints += [z[0] &gt;= l0, z[0] &lt;= u0]
-
-return cp.Problem(cp.Minimize(c @ z[d+1]), constraints), (z, v)
-</code></pre><p>3.3    def form_lp(model, c, initial_bounds, bounds):<br>    linear_layers = [(layer, bound) for layer, bound in zip(model,bounds) if isinstance(layer, nn.Linear)]<br>    d = len(linear_layers)-1</p>
-<pre><code># create cvxpy variables
-z = ([cp.Variable(layer.in_features) for layer, _ in linear_layers] + 
-     [cp.Variable(linear_layers[-1][0].out_features)])
-v = [cp.Variable(layer.out_features) for layer, _ in linear_layers[:-1]]
-
-# extract relevant matrices
-W = [layer.weight.detach().cpu().numpy() for layer,_ in linear_layers]
-b = [layer.bias.detach().cpu().numpy() for layer,_ in linear_layers]
-l = [l[0].detach().cpu().numpy() for _, (l,_) in linear_layers]
-u = [u[0].detach().cpu().numpy() for _, (_,u) in linear_layers]
-l0 = initial_bound[0][0].view(-1).detach().cpu().numpy()
-u0 = initial_bound[1][0].view(-1).detach().cpu().numpy()
-
-# add ReLU constraints
-constraints = []
-for i in range(len(linear_layers)-1):
-    constraints += [z[i+1] &gt;= W[i] @ z[i] + b[i], 
-                    z[i+1] &gt;= 0,
-                    cp.multiply(v[i], u[i]) &gt;= z[i+1],
-                    W[i] @ z[i] + b[i] &gt;= z[i+1] + cp.multiply((1-v[i]), l[i]),
-                    v[i] &gt;= 0,
-                    v[i] &lt;= 1]
-
-# final linear constraint
-constraints += [z[d+1] == W[d] @ z[d] + b[d]]
-
-# initial bound constraints
-constraints += [z[0] &gt;= l0, z[0] &lt;= u0]
-
-return cp.Problem(cp.Minimize(c @ z[d+1]), constraints), (z, v)
-</code></pre><p>3.4<br><code>def interval_based_bound(model, c, bounds):
-cW = c.t() @ model[-1].weight
-cb = c.t() @ model[-1].bias
-l,u = bounds[-2]
-return (cW.clamp(min=0) @ l.t() + cW.clamp(max=0) @ u.t() + cb[:,None]).t()</code></p>
+        <h1 id="第一章-Introduction-to-adversarial-robustness"><a href="#第一章-Introduction-to-adversarial-robustness" class="headerlink" title="第一章 - Introduction to adversarial robustness"></a>第一章 - Introduction to adversarial robustness</h1><p>我运行Adversarial Robustness-Theory and Practice.introduction代码，加载resnet50，看到在注入噪音后，pig图像被算法误认为是airliner。</p>
+<h1 id="第二章-linear-models"><a href="#第二章-linear-models" class="headerlink" title="第二章 - linear models"></a>第二章 - linear models</h1><p>（1）    加载MINIST数据集 <br><br>（2）    对数据进行常规训练，TEST_ERR错误率仅仅0.04%. <br><br>（3）    开始进行对抗攻击，随机干扰数EPSILON =0.2 <br><br>（4）    实行对抗攻击，发现TEST_ERR的错误率从之前的0.04%骤升到85%左右。 <br><br>（5）    然后进行鲁棒训练，最核心的是<code>MODEL(X.VIEW(X.SHAPE[0], -1))[:,0] - EPSILON*(2*Y.FLOAT()-1)*MODEL.WEIGHT.NORM(1)</code> <br><br>（6）    鲁棒训练完成后，任何对抗攻击不会让TEST_ERROR高于2.5%。此时非对抗攻击得到的TEST_ERROR的错误率是0.3%左右（这个结果是大于之前的0.04%的）。这是鲁棒训练20个周期的结果，我测试了下，如果加大训练周期，并不会让结果更优。<br>  也就是说进行鲁棒训练会提升抵抗对抗攻击的能力，但是同时会小幅度提升TEST_ERROR的比率。</p>
+<h1 id="第三章-Adversarial-examples-solving-the-inner-maximization"><a href="#第三章-Adversarial-examples-solving-the-inner-maximization" class="headerlink" title="第三章 - Adversarial examples, solving the inner maximization"></a>第三章 - Adversarial examples, solving the inner maximization</h1><h2 id="1-非针对性攻击"><a href="#1-非针对性攻击" class="headerlink" title="1.    非针对性攻击"></a>1.    非针对性攻击</h2><p>主要方法是FGSM和PGD。PGD是迭代更新，比FGSM的迭代次数多。但是当梯度很小的时候，传统的PGD的效果也不好，于是出现the (normalized) steepest descent method.相对于传统PGD算法，它的delta.data = (delta + alpha*delta.grad.detach().sign()).clamp(-epsilon,epsilon)。这种改进的PGD的表现仍然受到目标内局部最优可能性的限制，虽然不可能完全避免局部最优，但可以通过随机重启来缓解这个问题。</p>
+<h2 id="2-针对性攻击（基于改进的PGD-gt-the-normalized-steepest-descent-method）"><a href="#2-针对性攻击（基于改进的PGD-gt-the-normalized-steepest-descent-method）" class="headerlink" title="2.    针对性攻击（基于改进的PGD-&gt;the (normalized) steepest descent method）"></a>2.    针对性攻击（基于改进的PGD-&gt;the (normalized) steepest descent method）</h2><p>最大化真实label的损失函数，并最小化目标label的损失函数，这相当于解决内部优化问题。下面是几种损失函数设计<br><br>（1）<code>loss = (yp[:,y_targ] - yp.gather(1,y[:,None])[:,0]).sum()</code><br><br>    缺点：仅仅让非零数字欺骗分类器。原因在于我们是the class logit for the zero minus the class logit for the true class. 但是我们实际上并不关心其他类的情况。所以我们可以修改损失函数为下面这种。<br><br>（2）<code>loss = 2*yp[:,y_targ].sum() - yp.sum()</code>  <br><br>    缺点：不能达到100%正确率。<br><br>（3） 占个位，这个不太懂。</p>
+<h2 id="3-组合优化解决内部最大问题"><a href="#3-组合优化解决内部最大问题" class="headerlink" title="3.    组合优化解决内部最大问题"></a>3.    组合优化解决内部最大问题</h2><p>有一些寻找边界区间界限的方法，但是被轻微扰动后，区间界限上下浮动比较大，不实用。最终用的方法是混合整数线性规划策略。代码部分主要是利用cvxpy构建了很多constraints。</p>
+<p>关于优化这部分内容不需要细看。如果细看的话，估计2年也看不完。大概知道做什么的就行了。</p>
 
       
     </div>
@@ -694,6 +597,8 @@ return (cW.clamp(min=0) @ l.t() + cW.clamp(max=0) @ u.t() + cb[:,None]).t()</cod
             <a href="/tags/对抗训练/" rel="tag"><i class="fa fa-tag"></i> 对抗训练</a>
           
             <a href="/tags/鲁棒性/" rel="tag"><i class="fa fa-tag"></i> 鲁棒性</a>
+          
+            <a href="/tags/交大科研/" rel="tag"><i class="fa fa-tag"></i> 交大科研</a>
           
         </div>
       
@@ -877,7 +782,9 @@ return (cW.clamp(min=0) @ l.t() + cW.clamp(max=0) @ u.t() + cb[:,None]).t()</cod
                     
                       
                     
-                    <span class="site-state-item-count">23</span>
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -970,7 +877,7 @@ return (cW.clamp(min=0) @ l.t() + cW.clamp(max=0) @ u.t() + cb[:,None]).t()</cod
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章"><span class="nav-number">1.</span> <span class="nav-text">第一章</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章"><span class="nav-number">2.</span> <span class="nav-text">第二章</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章"><span class="nav-number">3.</span> <span class="nav-text">第三章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-无目标攻击"><span class="nav-number">3.1.</span> <span class="nav-text">1.无目标攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-目标攻击"><span class="nav-number">3.2.</span> <span class="nav-text">2.目标攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3"><span class="nav-number">3.3.</span> <span class="nav-text">3.???</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-Introduction-to-adversarial-robustness"><span class="nav-number">1.</span> <span class="nav-text">第一章 - Introduction to adversarial robustness</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章-linear-models"><span class="nav-number">2.</span> <span class="nav-text">第二章 - linear models</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章-Adversarial-examples-solving-the-inner-maximization"><span class="nav-number">3.</span> <span class="nav-text">第三章 - Adversarial examples, solving the inner maximization</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-非针对性攻击"><span class="nav-number">3.1.</span> <span class="nav-text">1.    非针对性攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-针对性攻击（基于改进的PGD-gt-the-normalized-steepest-descent-method）"><span class="nav-number">3.2.</span> <span class="nav-text">2.    针对性攻击（基于改进的PGD-&gt;the (normalized) steepest descent method）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-组合优化解决内部最大问题"><span class="nav-number">3.3.</span> <span class="nav-text">3.    组合优化解决内部最大问题</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1005,7 +912,7 @@ return (cW.clamp(min=0) @ l.t() + cW.clamp(max=0) @ u.t() + cb[:,None]).t()</cod
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">20k</span>
+    <span title="站点总字数">16k</span>
   
 
   
@@ -1016,7 +923,7 @@ return (cW.clamp(min=0) @ l.t() + cW.clamp(max=0) @ u.t() + cb[:,None]).t()</cod
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">18 分钟</span>
+    <span title="站点阅读时长">15 分钟</span>
   
 </div>
  <!--
