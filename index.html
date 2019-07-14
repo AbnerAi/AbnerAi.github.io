@@ -434,7 +434,7 @@
                 
               
 
-              <time title="创建时间：2019-07-14 17:34:55 / 修改时间：21:49:12" itemprop="dateCreated datePublished" datetime="2019-07-14T17:34:55+08:00">2019-07-14</time>
+              <time title="创建时间：2019-07-14 17:34:55 / 修改时间：21:52:47" itemprop="dateCreated datePublished" datetime="2019-07-14T17:34:55+08:00">2019-07-14</time>
             
 
             
@@ -520,15 +520,17 @@
 
       
         
+          <h1 id="第一章-Introduction-to-adversarial-robustness"><a href="#第一章-Introduction-to-adversarial-robustness" class="headerlink" title="第一章 - Introduction to adversarial robustness"></a>第一章 - Introduction to adversarial robustness</h1><p>我运行Adversarial Robustness-Theory and Practice.introduction代码，加载resnet50，看到在注入噪音后，pig图像被算法误认为是airliner。</p>
+<h1 id="第二章-linear-models"><a href="#第二章-linear-models" class="headerlink" title="第二章 - linear models"></a>第二章 - linear models</h1><p>（1）    加载MINIST数据集 <br><br>（2）    对数据进行常规训练，TEST_ERR错误率仅仅0.04%. <br><br>（3）    开始进行对抗攻击，随机干扰数EPSILON =0.2 <br><br>（4）    实行对抗攻击，发现TEST_ERR的错误率从之前的0.04%骤升到85%左右。 <br><br>（5）    然后进行鲁棒训练，最核心的是<code>MODEL(X.VIEW(X.SHAPE[0], -1))[:,0] - EPSILON*(2*Y.FLOAT()-1)*MODEL.WEIGHT.NORM(1)</code> <br><br>（6）    鲁棒训练完成后，任何对抗攻击不会让TEST_ERROR高于2.5%。此时非对抗攻击得到的TEST_ERROR的错误率是0.3%左右（这个结果是大于之前的0.04%的）。这是鲁棒训练20个周期的结果，我测试了下，如果加大训练周期，并不会让结果更优。<br>  也就是说进行鲁棒训练会提升抵抗对抗攻击的能力，但是同时会小幅度提升TEST_ERROR的比率。<br></p>
+          <!--noindex-->
           
-            <h1 id="第一章-Introduction-to-adversarial-robustness"><a href="#第一章-Introduction-to-adversarial-robustness" class="headerlink" title="第一章 - Introduction to adversarial robustness"></a>第一章 - Introduction to adversarial robustness</h1><p>我运行Adversarial Robustness-Theory and Practice.introduction代码，加载resnet50，看到在注入噪音后，pig图像被算法误认为是airliner。</p>
-<h1 id="第二章-linear-models"><a href="#第二章-linear-models" class="headerlink" title="第二章 - linear models"></a>第二章 - linear models</h1><p>（1）    加载MINIST数据集 <br><br>（2）    对数据进行常规训练，TEST_ERR错误率仅仅0.04%. <br><br>（3）    开始进行对抗攻击，随机干扰数EPSILON =0.2 <br><br>（4）    实行对抗攻击，发现TEST_ERR的错误率从之前的0.04%骤升到85%左右。 <br><br>（5）    然后进行鲁棒训练，最核心的是<code>MODEL(X.VIEW(X.SHAPE[0], -1))[:,0] - EPSILON*(2*Y.FLOAT()-1)*MODEL.WEIGHT.NORM(1)</code> <br><br>（6）    鲁棒训练完成后，任何对抗攻击不会让TEST_ERROR高于2.5%。此时非对抗攻击得到的TEST_ERROR的错误率是0.3%左右（这个结果是大于之前的0.04%的）。这是鲁棒训练20个周期的结果，我测试了下，如果加大训练周期，并不会让结果更优。<br>  也就是说进行鲁棒训练会提升抵抗对抗攻击的能力，但是同时会小幅度提升TEST_ERROR的比率。</p>
-<h1 id="第三章-Adversarial-examples-solving-the-inner-maximization"><a href="#第三章-Adversarial-examples-solving-the-inner-maximization" class="headerlink" title="第三章 - Adversarial examples, solving the inner maximization"></a>第三章 - Adversarial examples, solving the inner maximization</h1><h2 id="1-非针对性攻击"><a href="#1-非针对性攻击" class="headerlink" title="1.    非针对性攻击"></a>1.    非针对性攻击</h2><p>主要方法是FGSM和PGD。PGD是迭代更新，比FGSM的迭代次数多。但是当梯度很小的时候，传统的PGD的效果也不好，于是出现the (normalized) steepest descent method.相对于传统PGD算法，它的delta.data = (delta + alpha*delta.grad.detach().sign()).clamp(-epsilon,epsilon)。这种改进的PGD的表现仍然受到目标内局部最优可能性的限制，虽然不可能完全避免局部最优，但可以通过随机重启来缓解这个问题。</p>
-<h2 id="2-针对性攻击（基于改进的PGD-gt-the-normalized-steepest-descent-method）"><a href="#2-针对性攻击（基于改进的PGD-gt-the-normalized-steepest-descent-method）" class="headerlink" title="2.    针对性攻击（基于改进的PGD-&gt;the (normalized) steepest descent method）"></a>2.    针对性攻击（基于改进的PGD-&gt;the (normalized) steepest descent method）</h2><p>最大化真实label的损失函数，并最小化目标label的损失函数，这相当于解决内部优化问题。下面是几种损失函数设计<br><br>（1）<code>loss = (yp[:,y_targ] - yp.gather(1,y[:,None])[:,0]).sum()</code><br><br>    缺点：仅仅让非零数字欺骗分类器。原因在于我们是the class logit for the zero minus the class logit for the true class. 但是我们实际上并不关心其他类的情况。所以我们可以修改损失函数为下面这种。<br><br>（2）<code>loss = 2*yp[:,y_targ].sum() - yp.sum()</code>  <br><br>    缺点：不能达到100%正确率。<br><br>（3） 占个位，这个不太懂。</p>
-<h2 id="3-组合优化解决内部最大问题"><a href="#3-组合优化解决内部最大问题" class="headerlink" title="3.    组合优化解决内部最大问题"></a>3.    组合优化解决内部最大问题</h2><p>有一些寻找边界区间界限的方法，但是被轻微扰动后，区间界限上下浮动比较大，不实用。最终用的方法是混合整数线性规划策略。代码部分主要是利用cvxpy构建了很多constraints。</p>
-<p>关于优化这部分内容不需要细看。如果细看的话，估计2年也看不完。大概知道做什么的就行了。</p>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/07/14/Adversarial-Robustness-Theory-and-Practice/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
